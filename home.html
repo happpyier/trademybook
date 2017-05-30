@@ -5,13 +5,15 @@
 			body { background-color: gray; }
 			boldHeader { font-size: 20px; color: black; }
 			iframe { border: none; width: 100%; height: 100%; }
-			#footerContent { color: white; margin-left: 50%; margin-right: 50%; }
-			#headerContent { color: gray;  background-color: LightGray;  height:50px; }
 			#container { width: 100%; height: 400px;  }
+			#footerContent { color: white; margin-left: 50%; margin-right: 50%; }
 			#graph_results { width: 100%; height: 50px; }
+			#headerContent { color: gray;  background-color: LightGray;  height:50px; }
 			#mainContent { background-color: white; color: white; margin: 50 250 50 250; height: 800px; }
 			#ticker_results { width: 100%; }
-			.borderless { border: none; }
+			.borderless { width: 50px; height 50px; }
+			.button { border: }
+			.home { background-color: DimGray; }
 			.hidden { display: none; }
 			.ticker { float:left; width: 300px; height: 100px; margin: 10 25 10 25; background-color: white; color: darkgrey; padding: 15px; font-size: 14px;}
 			
@@ -21,13 +23,13 @@
 	<body>
 		<div id="headerContent">
 			<div>
-				<a href="http://github.com/happpyier/stockyier"> Home </a>
+				<a href="http://github.com/happpyier/stockyier" class="button home"> Home </a>
 			</div>
 			<div style="float: right;">
-				<div>
+				<div class="button">
 					<a> Sign Up </a>
 				</div>
-				<div>
+				<div class="button">
 					<a> Login </a>
 				</div>
 			</div>
