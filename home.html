@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<style>
+			h1 { font-size: 36px; }
+			h2 { font-size: 20px; }
+			h2 { font-size: 26px; }
+			p { font-size: 16px; }
+			#poll_results div { background-color: #FFFFFF; margin-left: 4%; margin-right: 4%; margin-bottom: 1px; height: 25px; text-align: center;}
+			.center { color:black; margin-left: 15%; margin-right: 15%; }
+			.bgcolor { background-color: #E8E8E8; }
+			.top { text-align: right; height: 40px; }
+			.top div { width: 100px; height: 40px; display: inline-block; text-align: center; line-height: 40px; }
+			.middle { }
+			.bottom { }
+			.spacer { height: 20px; background-color:#FFFFFF; }
+			.endDiv { width: 150px !important;}
+			.currentPage { background-color:#c2c2c2; }
+			.hidden { display: none !important; }
+			
+		</style>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	</head>
+	<body>
+		<div id="mainContent">
+			 <div id="container" class="hidden1"> </div>
+			 <div id="iframe_container">
+				<!-- <iframe id="graph_results" class="hidden1" src="stockyier.herokuapp.com"></iframe> -->
+			</div>
+			<div id="chartDemoContainer"> </div>
+			<div id="ticker_results">
+				<div class="ticker">
+					Syncs in realtime across clients
+					<input name="stock_ticker_add_input" id="stock_ticker_add_input"></input>
+					<button onclick="addTicker();">Add</button>
+				</div>
+			</div>
+		</div>
+		<div id="footerContent">
+			<div>
+				<a href="http://github.com/happpyier/stockyier"> &stockyier </a>
+			</div>
+		</div>
+	</body>
+
+</html>

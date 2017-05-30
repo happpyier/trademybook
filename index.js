@@ -8,7 +8,10 @@ var url = require("url");
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
-	response.end();
+	fs.readFile('home.html', 'utf8', function (err,data) {
+		response.write(data);
+		response.end();
+	});
 });
 app.get(['/reloadPage'], function(request, response) {
 	fs.readFile('reloadPage.html', 'utf8', function (err,data) {
