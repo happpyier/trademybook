@@ -1,0 +1,35 @@
+{
+  "name": "happpyier_projects",
+  "version": "0.1.5",
+  "description": "this is my projects heroku",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "cookie-parser": "1.4.0",
+    "ejs": "2.3.3",
+    "express": "^4.13.3",
+    "googleapis": "^3.1.0",
+    "highcharts": "^5.0.5",
+    "markit-on-demand": "^1.0.6",
+    "node-markitondemand": "^1.0.4",
+    "node-twitter-api": "^1.8.0",
+    "pg": "4.x",
+    "yelp": "^1.0.1"
+  },
+  "engines": {
+    "node": "6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/happpyier/stockyier.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
