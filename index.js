@@ -58,7 +58,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 	response.end();
 });
 app.get(['/signup'], function(request, response) {
-	  pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	  /* pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	 {
 		 var userEmail = "clinton12@gmail.com";
 		 var postSqlCustom3 = "Select email from user_table WHERE email = '"+userEmail+"'";
@@ -74,11 +74,11 @@ app.get(['/signup'], function(request, response) {
 			 }
 			 done();
 		 });
-	 }); 
-	// fs.readFile('signup.html', 'utf8', function (err,data) {
-		// response.write(data);
-		// response.end();
-	// });
+	 });  */
+	fs.readFile('signup.html', 'utf8', function (err,data) {
+		response.write(data);
+		response.end();
+	});
 });
 app.get(['/reloadPage'], function(request, response) {
 	fs.readFile('reloadPage.html', 'utf8', function (err,data) {
