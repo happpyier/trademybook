@@ -32,7 +32,7 @@
 				var pre_Pass = document.getElementById("valPass").value;
 				var _Name = pre_Name.replace(/\,/g,"");
 				var _Email = pre_Email.replace(/\,/g,"");
-				var _Pass = _Pass.replace(/\,/g,"");
+				var _Pass = pre_Pass.replace(/\,/g,"");
 				var searchVal = _Name + "," + _Email + "," + _Pass;
 				alert (searchVal);
 				//window.location = "https://trademybook.herokuapp.com/addLogin/"+searchVal;
