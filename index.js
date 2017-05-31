@@ -38,7 +38,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 	response.end();
 });
 app.get(['/signup'], function(request, response) {
-	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	/* pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
 		var postSqlCustom2 = "Select name from user_table";
 		client.query(postSqlCustom2, function(err, result) 
@@ -53,10 +53,10 @@ app.get(['/signup'], function(request, response) {
 			}
 			done();
 		});
-	});
+	}); */
 	//fs.readFile('signup.html', 'utf8', function (err,data) {
 	//	response.write(data);
-	//	response.end();
+		response.end();
 	//});
 });
 app.get(['/reloadPage'], function(request, response) {
