@@ -56,7 +56,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 app.get(['/signup'], function(request, response) {
 	  pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	 {
-		 var userEmail = "happpyier@gmail.com";
+		 var userEmail = "clinton12@gmail.com";
 		 var postSqlCustom3 = "Select email from user_table WHERE email = '"+userEmail+"'";
 		 client.query(postSqlCustom3, function(err, result) 
 		 {
