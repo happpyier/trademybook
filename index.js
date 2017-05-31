@@ -15,7 +15,7 @@ app.get([''], function(request, response) {
 });
 app.get(['/addLogin/:id'], function(request, response) {
 	preloginVals = request.params.id;
-	var loginVals = preloginVals.split(",");
+	//var loginVals = preloginVals.split(",");
 	//user,email,pass is the setup
 	//var userName = loginVals[0];
 	//var userEmail = loginVals[1];
