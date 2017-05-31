@@ -16,14 +16,12 @@ app.get([''], function(request, response) {
 app.get(['/addLogin/:id'], function(request, response) {
 	preloginVals = request.params.id;
 	var loginVals = preloginVals.split(",");
-	user,email,pass is the setup
 	var userName = loginVals[0];
 	var userEmail = loginVals[1];
 	var userPass = loginVals[2];
 	response.write(userName + "..." + userEmail + "..." + userPass);
 	response.end();
 });
-//test,test,test
 app.get(['/signup'], function(request, response) {
 	fs.readFile('signup.html', 'utf8', function (err,data) {
 		response.write(data);
