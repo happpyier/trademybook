@@ -56,14 +56,15 @@ app.get(['/addLogin/:id'], function(request, response) {
 app.get(['/signup'], function(request, response) {
 	  pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	 {
-		 var postSqlCustom3 = "Select email from user_table";
+		 var userEmail = "happpyier@gmail.com";
+		 var postSqlCustom3 = "Select email from user_table WHERE email = '"+userEmail+"'";
 		 client.query(postSqlCustom3, function(err, result) 
 		 {
 			 if (err)
 				 { resultsidSQL = ("Error " + err); response.write(resultsidSQL); response.end(); }
 			 else
 			 { 
-				 testSQlValue1 = JSON.stringify(result.rows[0]["email"]);
+				 testSQlValue1 = JSON.stringify(result.rows.length);
 				 response.write(testSQlValue1 + "...Test_Results");
 				 response.end();
 			 }
