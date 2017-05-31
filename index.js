@@ -21,35 +21,39 @@ app.get(['/addLogin/:id'], function(request, response) {
 	var userPass = loginVals[2];
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
-		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-		 {
-			 var postSqlCustom3 = "Select name from user_table WHERE email = '"+userEmail+"'";
-			 client.query(postSqlCustom3, function(err, result) 
-			 {
-				 if (err)
-					 { resultsidSQL = ("Error " + err); response.write(resultsidSQL); response.end(); }
-				 else
-				 { 
-					 testSQlValue1 = JSON.stringify(result.rows);
-					 response.write(testSQlValue1 + "...Test_Results");
-					 response.end();
-				 }
-				 done();
-			 });
-		 });
-		var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
-		client.query(postSqlCustom2, function(err, result) 
+		var postSqlCustom3 = "Select name from user_table WHERE email = '"+userEmail+"'";
+		client.query(postSqlCustom3, function(err, result) 
 		{
-			if (err)
-				{ resultsidSQL = ("Error " + err); }
+			 if (err)
+				{ resultsidSQL = ("Error " + err); response.write(resultsidSQL); response.end(); }
 			else
 			{ 
-				//response.redirect(location);
-				response.write(userName + "..." + userEmail + "..." + userPass);
-				response.end();
+				testSQlValue1 = JSON.stringify(result.rows.length);
+				//response.write(testSQlValue1 + "...Test_Results");
+				//response.end();
 			}
 			done();
 		});
+		if (testSQlValue1 > 0)
+		{
+			var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
+			client.query(postSqlCustom2, function(err, result) 
+			{
+				if (err)
+					{ resultsidSQL = ("Error " + err); }
+				else
+				{ 
+					//response.redirect(location);
+					response.write(userName + "..." + userEmail + "..." + userPass);
+					response.end();
+				}
+				done();
+			});
+		}
+		else
+		{
+			return response.redirect('/signup');
+		}
 	});
 	response.end();
 });
