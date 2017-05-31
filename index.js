@@ -47,7 +47,7 @@ app.get(['/signup'], function(request, response) {
 				 { resultsidSQL = ("Error " + err); response.write(resultsidSQL); response.end(); }
 			 else
 			 { 
-				 testSQlValue1 = JSON.stringify(result);
+				 testSQlValue1 = JSON.stringify(result.rows['name']);
 				 response.write(testSQlValue1 + "...Test_Results");
 				 response.end();
 			 }
