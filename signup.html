@@ -43,6 +43,7 @@
 				{
 					document.getElementById("valName").style.borderColor = "";
 				}
+				//check to see if this has the correct email format.
 				if (pre_Email.length < 1)
 				{
 					_error += 1;
@@ -51,7 +52,17 @@
 				}
 				else
 				{
-					document.getElementById("valEmail").style.borderColor = "";
+					var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+					emailResults = re.test(pre_Email);
+					if (emailResults == true)
+					{
+						document.getElementById("valEmail").style.borderColor = "";
+					}
+					else
+					{
+						document.getElementById("valEmail").value = "";
+						document.getElementById("valEmail").placeholder = "Please enter a valid Email Address.";
+					}
 					
 				}
 				if (pre_Pass.length < 3)
