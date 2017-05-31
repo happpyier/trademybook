@@ -21,6 +21,22 @@ app.get(['/addLogin/:id'], function(request, response) {
 	var userPass = loginVals[2];
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
+		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+		 {
+			 var postSqlCustom3 = "Select name from user_table WHERE email = '"+userEmail+"'";
+			 client.query(postSqlCustom3, function(err, result) 
+			 {
+				 if (err)
+					 { resultsidSQL = ("Error " + err); response.write(resultsidSQL); response.end(); }
+				 else
+				 { 
+					 testSQlValue1 = JSON.stringify(result.rows);
+					 response.write(testSQlValue1 + "...Test_Results");
+					 response.end();
+				 }
+				 done();
+			 });
+		 });
 		var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
 		client.query(postSqlCustom2, function(err, result) 
 		{
@@ -38,26 +54,26 @@ app.get(['/addLogin/:id'], function(request, response) {
 	response.end();
 });
 app.get(['/signup'], function(request, response) {
-	 pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	  pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	 {
-		 var postSqlCustom3 = "Select name from user_table";
+		 var postSqlCustom3 = "Select email from user_table";
 		 client.query(postSqlCustom3, function(err, result) 
 		 {
 			 if (err)
 				 { resultsidSQL = ("Error " + err); response.write(resultsidSQL); response.end(); }
 			 else
 			 { 
-				 testSQlValue1 = JSON.stringify(result.rows);
+				 testSQlValue1 = JSON.stringify(result.rows[0]["email"]);
 				 response.write(testSQlValue1 + "...Test_Results");
 				 response.end();
 			 }
 			 done();
 		 });
-	 });
-	//fs.readFile('signup.html', 'utf8', function (err,data) {
-	//	response.write(data);
-	//	response.end();
-	//});
+	 }); 
+	fs.readFile('signup.html', 'utf8', function (err,data) {
+		response.write(data);
+		response.end();
+	});
 });
 app.get(['/reloadPage'], function(request, response) {
 	fs.readFile('reloadPage.html', 'utf8', function (err,data) {
