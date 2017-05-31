@@ -27,14 +27,12 @@
 		<script>
 			function addLogin()
 			{
-				var pre_Name = document.getElementById("valName").replace(/\,/g,"");
-				var pre_Email = document.getElementById("valEmail").replace(/\,/g,"");
-				var pre_Pass = document.getElementById("valPass").replace(/\,/g,"");
+				var pre_Name = document.getElementById("valName").value;
+				var pre_Email = document.getElementById("valEmail").value;
+				var pre_Pass = document.getElementById("valPass").value;
 				var _Name = pre_Name.replace(/\,/g,"");
 				var _Email = pre_Email.replace(/\,/g,"");
 				var _Pass = _Pass.replace(/\,/g,"");
-				
-				
 				var searchVal = _Name + "," + _Email + "," + _Pass;
 				alert (searchVal);
 				//window.location = "https://trademybook.herokuapp.com/addLogin/"+searchVal;
