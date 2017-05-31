@@ -40,8 +40,8 @@ app.get(['/addLogin/:id'], function(request, response) {
 app.get(['/signup'], function(request, response) {
 	 pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	 {
-		 var postSqlCustom2 = "Select name from user_table";
-		 client.query(postSqlCustom2, function(err, result) 
+		 var postSqlCustom3 = "Select name from user_table";
+		 client.query(postSqlCustom3, function(err, result) 
 		 {
 			 if (err)
 				 { resultsidSQL = ("Error " + err); }
