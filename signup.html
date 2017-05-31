@@ -35,7 +35,7 @@
 				{
 					_error += 1;
 					document.getElementById("valName").style.borderColor = "red";
-					document.getElementById("valPass").placeholder = "Please enter a Name.";
+					document.getElementById("valName").placeholder = "Please enter a Name.";
 				}
 				else
 				{
@@ -45,7 +45,7 @@
 				{
 					_error += 1;
 					document.getElementById("valEmail").style.borderColor = "red";
-					document.getElementById("valPass").placeholder = "Please enter an Email.";
+					document.getElementById("valEmail").placeholder = "Please enter an Email.";
 				}
 				else
 				{
@@ -69,6 +69,7 @@
 				if (_error < 1)
 				{
 					alert ("relocation");
+					//Need to check the email before submitting it to make sure it's not already in use.
 					//window.location = "https://trademybook.herokuapp.com/addLogin/"+searchVal;
 				}
 				else
