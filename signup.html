@@ -34,29 +34,33 @@
 				if (pre_Name.length < 1)
 				{
 					_error += 1;
-					document.getElementById("valName").borderColor = "red";
+					document.getElementById("valName").style.borderColor = "red";
+					document.getElementById("valPass").placeholder = "Please enter a Name.";
 				}
 				else
 				{
-					document.getElementById("valName").borderColor = "";
+					document.getElementById("valName").style.borderColor = "";
 				}
 				if (pre_Email.length < 1)
 				{
 					_error += 1;
 					document.getElementById("valEmail").style.borderColor = "red";
+					document.getElementById("valPass").placeholder = "Please enter an Email.";
 				}
 				else
 				{
-					document.getElementById("valEmail").borderColor = "";
+					document.getElementById("valEmail").style.borderColor = "";
+					
 				}
-				if (pre_Pass.length < 1)
+				if (pre_Pass.length < 3)
 				{
 					_error += 1;
-					document.getElementById("valPass").borderColor = "red";
+					document.getElementById("valPass").style.borderColor = "red";
+					document.getElementById("valPass").placeholder = "Please enter a Password with at least 3 Characters.";
 				}
 				else
 				{
-					document.getElementById("valPass").borderColor = "";
+					document.getElementById("valPass").style.borderColor = "";
 				}
 				var _Name = pre_Name.replace(/\,/g,"");
 				var _Email = pre_Email.replace(/\,/g,"");
