@@ -27,9 +27,14 @@
 		<script>
 			function addLogin()
 			{
-				var _Name = document.getElementById("valName").replace(/\,/g,"");
-				var _Email = document.getElementById("valEmail").replace(/\,/g,"");
-				var _Pass = document.getElementById("valPass").replace(/\,/g,"");
+				var pre_Name = document.getElementById("valName").replace(/\,/g,"");
+				var pre_Email = document.getElementById("valEmail").replace(/\,/g,"");
+				var pre_Pass = document.getElementById("valPass").replace(/\,/g,"");
+				var _Name = pre_Name.replace(/\,/g,"");
+				var _Email = pre_Email.replace(/\,/g,"");
+				var _Pass = _Pass.replace(/\,/g,"");
+				
+				
 				var searchVal = _Name + "," + _Email + "," + _Pass;
 				alert (searchVal);
 				//window.location = "https://trademybook.herokuapp.com/addLogin/"+searchVal;
@@ -59,24 +64,24 @@
 			</div>
 		</div>
 		<div id="mainContent">
-				<div class="first">
-					Sign Up
-				</div>
-				<div class="second">
-					Name
-					<input id="valName"> </input>
-				</div>
-				<div class="second">
-					Email
-					<input id="valEmail"> </input>
-				</div>
-				<div class="second">
-					Password
-					<input id="valPass"> </input>
-				</div>
-				<div class="third">
-					<button onclick="addLogin();"> Submit </button>
-				</div>
+			<div class="first">
+				Sign Up
+			</div>
+			<div class="second">
+				Name
+				<input id="valName"> </input>
+			</div>
+			<div class="second">
+				Email
+				<input id="valEmail"> </input>
+			</div>
+			<div class="second">
+				Password
+				<input id="valPass"> </input>
+			</div>
+			<div class="third">
+				<button onclick="addLogin();"> Submit </button>
+			</div>
 		</div>
 		<div id="footerContent">
 			
