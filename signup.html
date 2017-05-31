@@ -27,14 +27,50 @@
 		<script>
 			function addLogin()
 			{
+				var error = 0;
 				var pre_Name = document.getElementById("valName").value;
 				var pre_Email = document.getElementById("valEmail").value;
 				var pre_Pass = document.getElementById("valPass").value;
+				if (pre_Name.length < 1)
+				{
+					error += 1;
+					document.getElementById("valName").background-color = "red";
+				}
+				else
+				{
+					document.getElementById("valName").background-color = "";
+				}
+				if (pre_Email.length < 1)
+				{
+					error += 1;
+					document.getElementById("valEmail").background-color = "red";
+				}
+				else
+				{
+					document.getElementById("valEmail").background-color = "";
+				}
+				if (pre_Pass.length < 1)
+				{
+					error += 1;
+					document.getElementById("valPass").background-color = "red";
+				}
+				else
+				{
+					document.getElementById("valPass").background-color = "";
+				}
 				var _Name = pre_Name.replace(/\,/g,"");
 				var _Email = pre_Email.replace(/\,/g,"");
 				var _Pass = pre_Pass.replace(/\,/g,"");
 				var searchVal = _Name + "," + _Email + "," + _Pass;
-				window.location = "https://trademybook.herokuapp.com/addLogin/"+searchVal;
+				if (error < 1)
+				{
+					alert ("relocation");
+					//window.location = "https://trademybook.herokuapp.com/addLogin/"+searchVal;
+				}
+				else
+				{
+					alert("I'm staying.");
+				}
 			}
 		</script>
 	</head>

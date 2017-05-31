@@ -19,7 +19,22 @@ app.get(['/addLogin/:id'], function(request, response) {
 	var userName = loginVals[0];
 	var userEmail = loginVals[1];
 	var userPass = loginVals[2];
-	response.write(userName + "..." + userEmail + "..." + userPass);
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	{
+		var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
+		client.query(postSqlCustom2, function(err, result) 
+		{
+			if (err)
+				{ resultsidSQL = ("Error " + err); }
+			else
+			{ 
+				//response.redirect(location);
+				response.write(userName + "..." + userEmail + "..." + userPass);
+				response.end();
+			}
+			done();
+		});
+	});
 	response.end();
 });
 app.get(['/signup'], function(request, response) {
