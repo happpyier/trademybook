@@ -48,7 +48,7 @@ app.get(['/signup'], function(request, response) {
 			 else
 			 { 
 				 //testSQlValue = result.rows;
-				 response.write(result + "...Test_Results");
+				 response.write(result["name"] + "...Test_Results");
 				 response.end();
 			 }
 			 done();
