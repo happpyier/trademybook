@@ -49,14 +49,15 @@ app.get(['/signup'], function(request, response) {
 			{ 
 				testSQlValue = result.rows;
 				response.write(testSQlValue["name"]);
+				response.end();
 			}
 			done();
 		});
 	});
-	fs.readFile('signup.html', 'utf8', function (err,data) {
-		response.write(data);
-		response.end();
-	});
+	//fs.readFile('signup.html', 'utf8', function (err,data) {
+	//	response.write(data);
+	//	response.end();
+	//});
 });
 app.get(['/reloadPage'], function(request, response) {
 	fs.readFile('reloadPage.html', 'utf8', function (err,data) {
