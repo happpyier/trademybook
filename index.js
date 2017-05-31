@@ -38,26 +38,26 @@ app.get(['/addLogin/:id'], function(request, response) {
 	response.end();
 });
 app.get(['/signup'], function(request, response) {
-	 pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-	 {
-		 var postSqlCustom3 = "Select name from user_table";
-		 client.query(postSqlCustom3, function(err, result) 
-		 {
-			 if (err)
-				 { resultsidSQL = ("Error " + err); }
-			 else
-			 { 
-				 testSQlValue = result.rows;
-				 response.write(testSQlValue["name"]);
-				 response.end();
-			 }
-			 done();
-		 });
-	 });
-	//fs.readFile('signup.html', 'utf8', function (err,data) {
-	//	response.write(data);
+	 // pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	 // {
+		 // var postSqlCustom3 = "Select name from user_table";
+		 // client.query(postSqlCustom3, function(err, result) 
+		 // {
+			 // if (err)
+				 // { resultsidSQL = ("Error " + err); }
+			 // else
+			 // { 
+				 // testSQlValue = result.rows;
+				 // response.write(testSQlValue["name"]);
+				 // response.end();
+			 // }
+			 // done();
+		 // });
+	 // });
+	fs.readFile('signup.html', 'utf8', function (err,data) {
+		response.write(data);
 		response.end();
-	//});
+	});
 });
 app.get(['/reloadPage'], function(request, response) {
 	fs.readFile('reloadPage.html', 'utf8', function (err,data) {
