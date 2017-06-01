@@ -52,7 +52,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 				}
 				else
 				{
-					endDirect = 'http://trademybook.herokuapp.com/signup/' + testSQlValue1;
+					endDirect = 'http://trademybook.herokuapp.com/signup';
 					response.redirect(endDirect);
 				}
 			}
