@@ -54,7 +54,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 				done();
 			});
 		}
-		response.write(endValue + "...Test_Results");
+		response.write(testSQlValue1 + "...testSQLValue1..." + endValue + "...endValue");
 		response.end();
 		// else
 		// {
