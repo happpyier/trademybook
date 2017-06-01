@@ -33,14 +33,14 @@ app.get(['/addLogin/:id'], function(request, response) {
 				{ endValue = ("Error " + err); }
 			else
 			{ 
-				testSQlValue1 = JSON.stringify(result.rows.length);
+				testSQlValue1 = parseFloat(result.rows.length);
 				//response.write(testSQlValue1 + "...Test_Results");
 				//response.end();
 			}
 			done();
 			
 		});
-		if (testSQlValue1 == 0)
+		if (testSQlValue1 < 1 && testSQlValue1 != "")
 		{
 			var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
 			client.query(postSqlCustom2, function(err, result) 
@@ -50,7 +50,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 				else
 				{ 
 					endValue = "if";
-					response.redirect('http://trademybook.herokuapp.com/login');
+					//response.redirect('http://trademybook.herokuapp.com/login');
 				}
 				
 				done();
@@ -59,7 +59,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 		else
 		{
 			endValue = "else";
-			response.redirect('http://trademybook.herokuapp.com/signup');
+			//response.redirect('http://trademybook.herokuapp.com/signup');
 		}
 		response.write(testSQlValue1 + "...testSQLValue1..." + endValue + "...endValue");
 		response.end();
