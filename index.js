@@ -34,7 +34,8 @@ app.get(['/addLogin/:id'], function(request, response) {
 			else
 			{ 
 				testSQlValue1 = parseFloat(result.rows.length);
-			}	
+			}
+			done();
 		});
 		
 		// if (testSQlValue1 < 1 && testSQlValue1 != "")
