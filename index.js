@@ -41,7 +41,6 @@ app.get(['/addLogin/:id'], function(request, response) {
 		});
 		if (testSQlValue1 > 0)
 		{
-			
 			var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
 			client.query(postSqlCustom2, function(err, result) 
 			{
@@ -55,7 +54,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 				done();
 			});
 		}
-		response.write(testSQlValue1 + "...Test_Results");
+		response.write(endValue + "...Test_Results");
 		response.end();
 		// else
 		// {
