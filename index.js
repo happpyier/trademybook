@@ -31,7 +31,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 		client.query(postSqlCustom3, function(err, result) 
 		{
 			 if (err)
-				{ //endValue = ("Error " + err); }
+				{ endValue = ("Error " + err); }
 			else
 			{ 
 				testSQlValue1 = parseFloat(result.rows.length);
@@ -44,7 +44,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 			client.query(postSqlCustom2, function(err, result) 
 			{
 				if (err)
-					{ //endValue = ("Error " + err);  }
+					{ endValue = ("Error " + err);  }
 				else
 				{ 
 					//endValue = "if";
