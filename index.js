@@ -60,7 +60,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 		}
 
 	});
-	response.redirect(endDirect);
+	response.redirect();
 	response.end();
 });
 app.get(['/login'], function(request, response) {
