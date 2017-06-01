@@ -6,6 +6,7 @@ const fs = require('fs');
 var path = require("path");
 var url = require("url");
 var testSQlValue1 = "";
+var resultsidSQL = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
@@ -15,7 +16,7 @@ app.get([''], function(request, response) {
 	});
 });
 app.get(['/addLogin/:id'], function(request, response) {
-	preloginVals = request.params.id;
+	var preloginVals = request.params.id;
 	var loginVals = preloginVals.split(",");
 	var userName = loginVals[0];
 	var userEmail = loginVals[1];
