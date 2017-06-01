@@ -6,6 +6,7 @@ const fs = require('fs');
 var path = require("path");
 var url = require("url");
 var testSQlValue1 = "";
+var endValue = "";
 var resultsidSQL = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
@@ -28,7 +29,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 		client.query(postSqlCustom3, function(err, result) 
 		{
 			 if (err)
-				{ resultsidSQL = ("Error " + err); response.write(resultsidSQL); }
+				{ endValue = ("Error " + err); }
 			else
 			{ 
 				testSQlValue1 = JSON.stringify(result.rows.length);
@@ -45,10 +46,10 @@ app.get(['/addLogin/:id'], function(request, response) {
 			client.query(postSqlCustom2, function(err, result) 
 			{
 				if (err)
-					{ resultsidSQL = ("Error " + err); response.write("error");  }
+					{ endValue = ("Error " + err);  }
 				else
 				{ 
-					response.write("if");
+					endValue = "if";
 				}
 				
 				done();
