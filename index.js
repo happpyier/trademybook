@@ -31,7 +31,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 			{ 
 				testSQlValue1 = JSON.stringify(result.rows.length);
 				response.write(testSQlValue1 + "...Test_Results");
-				//response.end();
+				response.end();
 			}
 			done();
 		});
