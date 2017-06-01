@@ -31,30 +31,31 @@ app.get(['/addLogin/:id'], function(request, response) {
 			{ 
 				testSQlValue1 = JSON.stringify(result.rows.length);
 				response.write(testSQlValue1 + "...Test_Results");
-				response.end();
+				//response.end();
 			}
 			done();
 		});
 		
-		// if (testSQlValue1 > 0)
-		// {
-			// var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
-			// client.query(postSqlCustom2, function(err, result) 
-			// {
-				// if (err)
-					// { resultsidSQL = ("Error " + err); response.write("error"); response.end(); }
-				// else
-				// { 
-					// response.write("if");
-				// }
-				// done();
-			// });
-		// }
-		// else
-		// {
-			// response.write("else");
-			// response.redirect('http://trademybook.herokuapp.com/signup');
-		// }
+		if (testSQlValue1 > 0)
+		{
+			var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
+			client.query(postSqlCustom2, function(err, result) 
+			{
+				if (err)
+					{ resultsidSQL = ("Error " + err); response.write("error"); response.end(); }
+				else
+				{ 
+					response.write("if");
+				}
+				done();
+			});
+		}
+		else
+		{
+			response.write("else");
+			response.redirect('http://trademybook.herokuapp.com/signup');
+			response.end();
+		}
 		
 	});
 	
