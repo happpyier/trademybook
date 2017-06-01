@@ -36,9 +36,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 				testSQlValue1 = parseFloat(result.rows.length);
 				//response.write(testSQlValue1 + "...Test_Results");
 				//response.end();
-			}
-			done();
-			
+			}	
 		});
 		if (testSQlValue1 < 1 && testSQlValue1 != "")
 		{
