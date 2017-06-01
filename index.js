@@ -43,9 +43,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 					{ resultsidSQL = ("Error " + err); }
 				else
 				{ 
-					//response.redirect(location);
-					response.write(userName + "..." + userEmail + "..." + userPass);
-					response.end();
+					
 				}
 				done();
 			});
@@ -53,6 +51,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 		else
 		{
 			response.redirect('/signup');
+			response
 		}
 	});
 	response.end();
