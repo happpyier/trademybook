@@ -31,6 +31,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 			{ 
 				testSQlValue1 = JSON.stringify(result.rows.length);
 				response.write(testSQlValue1 + "...Test_Results");
+				response.end();
 			}
 			done();
 		});
@@ -54,7 +55,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 			// response.write("else");
 			// response.redirect('http://trademybook.herokuapp.com/signup');
 		// }
-		response.end();
+		
 	});
 	
 });
