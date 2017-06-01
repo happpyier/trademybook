@@ -58,11 +58,10 @@ app.get(['/addLogin/:id'], function(request, response) {
 			//endValue = "else";
 			endDirect = 'http://trademybook.herokuapp.com/signup';
 		}
-		response.redirect(endDirect);
-		//response.write(testSQlValue1 + "...testSQLValue1..." + endValue + "...endValue");
-		response.end();
+
 	});
-	
+	response.redirect(endDirect);
+	response.end();
 });
 app.get(['/login'], function(request, response) {
 	fs.readFile('login.html', 'utf8', function (err,data) {
