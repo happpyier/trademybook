@@ -34,7 +34,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 			}
 			done();
 		});
-		
+		response.end();
 		// if (testSQlValue1 > 0)
 		// {
 			// var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
