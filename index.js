@@ -19,47 +19,46 @@ app.get(['/addLogin/:id'], function(request, response) {
 	var userName = loginVals[0];
 	var userEmail = loginVals[1];
 	var userPass = loginVals[2];
-	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-	{
-		var postSqlCustom3 = "Select name from user_table WHERE email = '"+userEmail+"'";
-		client.query(postSqlCustom3, function(err, result) 
-		{
-			 if (err)
-				{ resultsidSQL = ("Error " + err); response.write(resultsidSQL); response.end(); }
-			else
-			{ 
-				testSQlValue1 = JSON.stringify(result.rows.length);
+	response.write("test");
+	// pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	// {
+		// var postSqlCustom3 = "Select name from user_table WHERE email = '"+userEmail+"'";
+		// client.query(postSqlCustom3, function(err, result) 
+		// {
+			 // if (err)
+				// { resultsidSQL = ("Error " + err); response.write(resultsidSQL); response.end(); }
+			// else
+			// { 
+				// testSQlValue1 = JSON.stringify(result.rows.length);
 				//response.write(testSQlValue1 + "...Test_Results");
 				//response.end();
-			}
-			done();
-		});
-		response.write(testSQlValue1);
-		response.end();
-		if (testSQlValue1 > 0)
-		{
-			var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
-			client.query(postSqlCustom2, function(err, result) 
-			{
-				if (err)
-					{ resultsidSQL = ("Error " + err); response.write("error"); response.end(); }
-				else
-				{ 
-					response.write("if");
-					//response.redirect(location);
-					//response.write(userName + "..." + userEmail + "..." + userPass);
-					response.end();
-				}
-				done();
-			});
-		}
-		else
-		{
-			response.write("else");
-			response.redirect('http://trademybook.herokuapp.com/signup');
-			response.end()
-		}
-	});
+			// }
+			// done();
+		// });
+		// response.write(testSQlValue1);
+		// response.end();
+		// if (testSQlValue1 > 0)
+		// {
+			// var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
+			// client.query(postSqlCustom2, function(err, result) 
+			// {
+				// if (err)
+					// { resultsidSQL = ("Error " + err); response.write("error"); response.end(); }
+				// else
+				// { 
+					// response.write("if");
+					// response.end();
+				// }
+				// done();
+			// });
+		// }
+		// else
+		// {
+			// response.write("else");
+			// response.redirect('http://trademybook.herokuapp.com/signup');
+			// response.end()
+		// }
+	// });
 	response.end();
 });
 app.get(['/signup'], function(request, response) {
