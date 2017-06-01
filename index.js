@@ -39,7 +39,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 			done();
 			
 		});
-		if (testSQlValue1 > 0)
+		if (testSQlValue1 < 0)
 		{
 			var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
 			client.query(postSqlCustom2, function(err, result) 
@@ -54,14 +54,13 @@ app.get(['/addLogin/:id'], function(request, response) {
 				done();
 			});
 		}
+		else
+		{
+			response.write("else");
+			//response.redirect('http://trademybook.herokuapp.com/signup');
+		}
 		response.write(testSQlValue1 + "...testSQLValue1..." + endValue + "...endValue");
 		response.end();
-		// else
-		// {
-			// response.write("else");
-			// response.redirect('http://trademybook.herokuapp.com/signup');
-		// }
-		// response.end();	
 	});
 	
 });
