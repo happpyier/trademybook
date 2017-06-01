@@ -7,6 +7,7 @@ var path = require("path");
 var url = require("url");
 var testSQlValue1 = "";
 var endValue = "";
+var endDirect = "";
 var resultsidSQL = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
@@ -30,7 +31,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 		client.query(postSqlCustom3, function(err, result) 
 		{
 			 if (err)
-				{ endValue = ("Error " + err); }
+				{ //endValue = ("Error " + err); }
 			else
 			{ 
 				testSQlValue1 = parseFloat(result.rows.length);
@@ -43,24 +44,23 @@ app.get(['/addLogin/:id'], function(request, response) {
 			client.query(postSqlCustom2, function(err, result) 
 			{
 				if (err)
-					{ endValue = ("Error " + err);  }
+					{ //endValue = ("Error " + err);  }
 				else
 				{ 
-					endValue = "if";
-					response.redirect('http://trademybook.herokuapp.com/login');
-					response.end();
+					//endValue = "if";
+					endDirect = 'http://trademybook.herokuapp.com/login';
 				}
 				done();
 			});
 		}
 		else
 		{
-			endValue = "else";
-			response.redirect('http://trademybook.herokuapp.com/signup');
-			response.end();
+			//endValue = "else";
+			endDirect = 'http://trademybook.herokuapp.com/signup';
 		}
+		response.redirect(endDirect);
 		//response.write(testSQlValue1 + "...testSQLValue1..." + endValue + "...endValue");
-		//response.end();
+		response.end();
 	});
 	
 });
