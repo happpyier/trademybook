@@ -1,0 +1,141 @@
+<html>
+	<head>
+		<style>
+			a:link { background-color: transparent; text-decoration: none; }
+			a { width: 100%; height: 100%; }
+			body { color:black; white; margin: 0px; }
+			#footerContent { text-align: center; border-top: thin dotted gray; }
+			#headerContent { background-color: white;  height:50px; border-bottom: thin dotted gray; }
+			#mainContent { background-color: blue; color: white; }
+			#mainContent input { width: 400px; height: 30px; }
+			#ticker_results { width: 100%; }
+			#valEmail, #valName { margin-left: 40px; }
+			.bottomSpace { margin-bottom: 50px; margin-top: 50px; }
+			.button { width: 100px; height: 35px;  display: inline-block; text-align: center; padding-top: 15px; }
+			.button:hover { background-color: DimGray; color: black; }
+			.featuresBar { display: inline-block; }
+			.first { padding-top: 30px; vertical-align: middle; font-size: 50px; text-align: center; }
+			.home { margin-left: 200px; }
+			.hidden { display: none; }
+			.largeFont { font-size: 40px; }
+			.loginBar { margin-left: 800px; display: inline-block;}
+			.second { vertical-align: middle; font-size: 30px; text-align: center; }
+			.selected { background-color: lightgray; }
+			.third { padding-bottom: 30px; vertical-align: middle; font-size: 30px; text-align: center; }
+			.underline { width: 400; height: 35px;  display: inline-block; text-align: center; padding-top: 15px; color: blue; border-bottom: thin dotted gray; } 
+			
+		</style>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script>
+			function Login()
+			{
+				alert("In the Works.");				
+				/*
+				var _error = 0;
+				var pre_Name = document.getElementById("valName").value;
+				var pre_Email = document.getElementById("valEmail").value;
+				var pre_Pass = document.getElementById("valPass").value;
+				if (pre_Name.length < 1)
+				{
+					_error += 1;
+					document.getElementById("valName").style.borderColor = "red";
+					document.getElementById("valName").placeholder = "Please enter a Name.";
+				}
+				else
+				{
+					document.getElementById("valName").style.borderColor = "";
+				}
+				//check to see if this has the correct email format.
+				if (pre_Email.length < 1)
+				{
+					_error += 1;
+					document.getElementById("valEmail").style.borderColor = "red";
+					document.getElementById("valEmail").placeholder = "Please enter an Email.";
+				}
+				else
+				{
+					var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+					emailResults = re.test(pre_Email);
+					if (emailResults == true)
+					{
+						document.getElementById("valEmail").style.borderColor = "";
+					}
+					else
+					{
+						_error += 1;
+						document.getElementById("valEmail").value = "";
+						document.getElementById("valEmail").placeholder = "Please enter a valid Email Address.";
+					}
+					
+				}
+				if (pre_Pass.length < 3)
+				{
+					_error += 1;
+					document.getElementById("valPass").style.borderColor = "red";
+					document.getElementById("valPass").value = "";
+					document.getElementById("valPass").placeholder = "Please enter a Password with at least 3 Characters.";
+				}
+				else
+				{
+					document.getElementById("valPass").style.borderColor = "";
+				}
+				var _Name = pre_Name.replace(/\,/g,"");
+				var _Email = pre_Email.replace(/\,/g,"");
+				var _Pass = pre_Pass.replace(/\,/g,"");
+				var searchVal = _Name + "," + _Email + "," + _Pass;
+				if (_error < 1)
+				{
+					window.location = "https://trademybook.herokuapp.com/addLogin/"+searchVal;
+				}
+				else
+				{
+					return false;
+				}
+				*/
+			}
+		</script>
+	</head>
+	<body>
+		<div id="headerContent">
+			<div>
+				<a href="http://trademybook.herokuapp.com">
+					<div  class="button home">
+						Home 
+					</div>
+				</a>
+				<div class="loginBar">
+					<a href="http://trademybook.herokuapp.com/signup">
+						<div class="button selected">
+							Sign Up 
+						</div>
+					</a>	
+					<a href="http://trademybook.herokuapp.com/login">
+						<div class="button">
+							Login
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div id="mainContent">
+			<div class="second">
+				Email
+				<input id="valEmail"> </input>
+			</div>
+			<div class="second">
+				Password
+				<input id="valPass"> </input>
+			</div>
+			<div class="third">
+				<button onclick="Login();"> Submit </button>
+			</div>
+		</div>
+		<div id="footerContent">
+			
+			<div>
+				<a href="http://github.com/happpyier/trademybook"> Github </a>
+			</div>
+		</div>
+	</body>
+
+</html>

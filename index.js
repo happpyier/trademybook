@@ -16,6 +16,7 @@ app.get([''], function(request, response) {
 		response.end();
 	});
 });
+
 app.get(['/addLogin/:id'], function(request, response) {
 	var preloginVals = request.params.id;
 	var loginVals = preloginVals.split(",");
@@ -49,6 +50,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 				else
 				{ 
 					endValue = "if";
+					response.redirect('http://trademybook.herokuapp.com/login');
 				}
 				
 				done();
@@ -64,8 +66,8 @@ app.get(['/addLogin/:id'], function(request, response) {
 	});
 	
 });
-app.get(['/signup'], function(request, response) {
-	fs.readFile('signup.html', 'utf8', function (err,data) {
+app.get(['/login'], function(request, response) {
+	fs.readFile('login.html', 'utf8', function (err,data) {
 		response.write(data);
 		response.end();
 	});
@@ -76,7 +78,12 @@ app.get(['/reloadPage'], function(request, response) {
 		response.end();
 	});
 });
-
+app.get(['/signup'], function(request, response) {
+	fs.readFile('signup.html', 'utf8', function (err,data) {
+		response.write(data);
+		response.end();
+	});
+});
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
 });
