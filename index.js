@@ -34,8 +34,6 @@ app.get(['/addLogin/:id'], function(request, response) {
 			else
 			{ 
 				testSQlValue1 = parseFloat(result.rows.length);
-				//response.write(testSQlValue1 + "...Test_Results");
-				//response.end();
 			}	
 		});
 		if (testSQlValue1 < 1 && testSQlValue1 != "")
@@ -48,16 +46,15 @@ app.get(['/addLogin/:id'], function(request, response) {
 				else
 				{ 
 					endValue = "if";
-					//response.redirect('http://trademybook.herokuapp.com/login');
+					response.redirect('http://trademybook.herokuapp.com/login');
 				}
-				
 				done();
 			});
 		}
 		else
 		{
 			endValue = "else";
-			//response.redirect('http://trademybook.herokuapp.com/signup');
+			response.redirect('http://trademybook.herokuapp.com/signup');
 		}
 		response.write(testSQlValue1 + "...testSQLValue1..." + endValue + "...endValue");
 		response.end();
