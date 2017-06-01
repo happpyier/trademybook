@@ -37,7 +37,6 @@ app.get(['/addLogin/:id'], function(request, response) {
 			done();
 		});
 		response.write(testSQlValue1 + "...Test_Results");
-		response.end();
 		if (testSQlValue1 > 0)
 		{
 			
@@ -54,7 +53,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 				done();
 			});
 		}
-		//response.end();
+		response.end();
 		// else
 		// {
 			// response.write("else");
