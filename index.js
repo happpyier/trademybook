@@ -5,6 +5,7 @@ const https = require('https');
 const fs = require('fs');
 var path = require("path");
 var url = require("url");
+var testSQlValue1 = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
