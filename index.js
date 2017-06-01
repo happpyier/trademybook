@@ -35,31 +35,32 @@ app.get(['/addLogin/:id'], function(request, response) {
 			else
 			{ 
 				testSQlValue1 = parseFloat(result.rows.length);
+				if (testSQlValue1 < 1 && testSQlValue1 != "")
+				{
+					var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
+					client.query(postSqlCustom2, function(err, result) 
+					{
+						if (err)
+							{ endValue = ("Error " + err);  }
+						else
+						{ 
+							//endValue = "if";
+							endDirect = 'http://trademybook.herokuapp.com/login';
+							response.redirect(endDirect);
+						}
+						done();
+					});
+				}
+				else
+				{
+					//endValue = "else";
+					endDirect = 'http://trademybook.herokuapp.com/signup';
+					response.redirect(endDirect);
+				}
 			}
 			done();
 		});
-		if (testSQlValue1 < 1 && testSQlValue1 != "")
-		{
-			var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
-			client.query(postSqlCustom2, function(err, result) 
-			{
-				if (err)
-					{ endValue = ("Error " + err);  }
-				else
-				{ 
-					//endValue = "if";
-					endDirect = 'http://trademybook.herokuapp.com/login';
-					response.redirect(endDirect);
-				}
-				done();
-			});
-		}
-		else
-		{
-			//endValue = "else";
-			endDirect = 'http://trademybook.herokuapp.com/signup';
-			response.redirect(endDirect);
-		}
+		
 
 	});
 	//response.end();
