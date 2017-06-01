@@ -40,7 +40,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 			client.query(postSqlCustom2, function(err, result) 
 			{
 				if (err)
-					{ resultsidSQL = ("Error " + err); }
+					{ resultsidSQL = ("Error " + err); response.write("error"); response.end(); }
 				else
 				{ 
 					response.write("if");
