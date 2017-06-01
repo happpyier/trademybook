@@ -31,10 +31,11 @@ app.get(['/addLogin/:id'], function(request, response) {
 			{ 
 				testSQlValue1 = JSON.stringify(result.rows.length);
 				response.write(testSQlValue1 + "...Test_Results");
+				response.end();
 			}
 			done();
 		});
-		response.end();
+		
 		// if (testSQlValue1 > 0)
 		// {
 			// var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
