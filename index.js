@@ -19,9 +19,10 @@ app.get(['/addLogin/:id'], function(request, response) {
 	var userName = loginVals[0];
 	var userEmail = loginVals[1];
 	var userPass = loginVals[2];
-	response.write("test");
-	// pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-	// {
+	
+    pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	{
+		response.write("test");
 		// var postSqlCustom3 = "Select name from user_table WHERE email = '"+userEmail+"'";
 		// client.query(postSqlCustom3, function(err, result) 
 		// {
@@ -58,7 +59,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 			// response.redirect('http://trademybook.herokuapp.com/signup');
 			// response.end()
 		// }
-	// });
+	});
 	response.end();
 });
 app.get(['/signup'], function(request, response) {
