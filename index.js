@@ -59,8 +59,9 @@ app.get(['/addLogin/:id'], function(request, response) {
 			// response.redirect('http://trademybook.herokuapp.com/signup');
 			// response.end()
 		// }
+		response.end();
 	});
-	response.end();
+	
 });
 app.get(['/signup'], function(request, response) {
 	fs.readFile('signup.html', 'utf8', function (err,data) {
