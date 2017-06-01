@@ -49,6 +49,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 				{ 
 					//endValue = "if";
 					endDirect = 'http://trademybook.herokuapp.com/login';
+					response.redirect(endDirect);
 				}
 				done();
 			});
@@ -57,11 +58,11 @@ app.get(['/addLogin/:id'], function(request, response) {
 		{
 			//endValue = "else";
 			endDirect = 'http://trademybook.herokuapp.com/signup';
+			response.redirect(endDirect);
 		}
 
 	});
-	response.redirect();
-	response.end();
+	//response.end();
 });
 app.get(['/login'], function(request, response) {
 	fs.readFile('login.html', 'utf8', function (err,data) {
