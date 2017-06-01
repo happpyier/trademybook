@@ -56,7 +56,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 		}
 		else
 		{
-			response.write("else");
+			endValue = "else";
 			//response.redirect('http://trademybook.herokuapp.com/signup');
 		}
 		response.write(testSQlValue1 + "...testSQLValue1..." + endValue + "...endValue");
