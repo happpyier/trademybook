@@ -45,14 +45,15 @@ app.get(['/addLogin/:id'], function(request, response) {
 				{ 
 					//response.redirect(location);
 					//response.write(userName + "..." + userEmail + "..." + userPass);
-					//response.end();
+					response.end();
 				}
 				done();
 			});
 		}
 		else
 		{
-			response.redirect('/signup');
+			response.redirect('http://trademybook.herokuapp.com/signup');
+			response.end()
 		}
 	});
 	response.end();
