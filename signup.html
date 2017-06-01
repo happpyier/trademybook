@@ -82,13 +82,11 @@
 				var searchVal = _Name + "," + _Email + "," + _Pass;
 				if (_error < 1)
 				{
-					//alert ("relocation");
-					//Need to check the email before submitting it to make sure it's not already in use.
 					window.location = "https://trademybook.herokuapp.com/addLogin/"+searchVal;
 				}
 				else
 				{
-					alert("I'm staying.");
+					return false;
 				}
 			}
 		</script>
