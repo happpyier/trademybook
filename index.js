@@ -30,8 +30,8 @@ app.get(['/addLogin/:id'], function(request, response) {
 		var postSqlCustom3 = "Select name from user_table WHERE email = '"+userEmail+"'";
 		client.query(postSqlCustom3, function(err, result) 
 		{
-			 if (err)
-				{ endValue = ("Error " + err); }
+			if (err)
+			{ endValue = ("Error " + err); }
 			else
 			{ 
 				var pretestSQlValue1 = result.rows.length;
@@ -45,14 +45,14 @@ app.get(['/addLogin/:id'], function(request, response) {
 							{ endValue = ("Error " + err);  }
 						else
 						{ 
-							endDirect = 'http://trademybook.herokuapp.com/login'+testSQlValue1;
+							endDirect = 'http://trademybook.herokuapp.com/login';
 							response.redirect(endDirect);
 						}
 					});
 				}
 				else
 				{
-					endDirect = 'http://trademybook.herokuapp.com/signup'+testSQlValue1;
+					endDirect = 'http://trademybook.herokuapp.com/signup';
 					response.redirect(endDirect);
 				}
 			}
