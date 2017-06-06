@@ -77,7 +77,7 @@ app.get(['/logmein/:id'], function(request, response) {
 	
     pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
-		var postSqlCustom3 = "Select name from user_table WHERE email = '"+userEmail+"' and pass = '"+userPass+"'" ;
+		var postSqlCustom3 = "Select name from user_table WHERE email = '"+userEmail+"' and password = '"+userPass+"'" ;
 		client.query(postSqlCustom3, function(err, result) 
 		{
 			if (err)
