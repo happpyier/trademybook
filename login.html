@@ -32,19 +32,8 @@
 				alert("In the Works.");				
 				/*
 				var _error = 0;
-				var pre_Name = document.getElementById("valName").value;
 				var pre_Email = document.getElementById("valEmail").value;
 				var pre_Pass = document.getElementById("valPass").value;
-				if (pre_Name.length < 1)
-				{
-					_error += 1;
-					document.getElementById("valName").style.borderColor = "red";
-					document.getElementById("valName").placeholder = "Please enter a Name.";
-				}
-				else
-				{
-					document.getElementById("valName").style.borderColor = "";
-				}
 				//check to see if this has the correct email format.
 				if (pre_Email.length < 1)
 				{
@@ -79,13 +68,12 @@
 				{
 					document.getElementById("valPass").style.borderColor = "";
 				}
-				var _Name = pre_Name.replace(/\,/g,"");
 				var _Email = pre_Email.replace(/\,/g,"");
 				var _Pass = pre_Pass.replace(/\,/g,"");
-				var searchVal = _Name + "," + _Email + "," + _Pass;
+				var searchVal = _Email + "," + _Pass;
 				if (_error < 1)
 				{
-					window.location = "https://trademybook.herokuapp.com/addLogin/"+searchVal;
+					window.location = "https://trademybook.herokuapp.com/logmeIn/"+searchVal;
 				}
 				else
 				{

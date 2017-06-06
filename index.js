@@ -69,6 +69,41 @@ app.get(['/login'], function(request, response) {
 		response.end();
 	});
 });
+app.get(['/logmein/:id'], function(request, response) {
+	var preloginVals = request.params.id;
+	var loginVals = preloginVals.split(",");
+	var userEmail = loginVals[0];
+	var userPass= loginVals[1];
+	
+    pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	{
+		var postSqlCustom3 = "Select name from user_table WHERE email = '"+userEmail+"' and pass = '"+userPass+"'" ;
+		client.query(postSqlCustom3, function(err, result) 
+		{
+			if (err)
+			{ endValue = ("Error " + err); }
+			else
+			{ 
+				var pretestSQlValue1 = result.rows.length;
+				testSQlValue1 = parseInt(pretestSQlValue1);
+				if (testSQlValue1 < 1)
+				{
+					response.write("this is a valid login");
+					response.end();
+				}
+				else
+				{
+					response.write("this is not a valid login");
+					response.end();
+				}
+			}
+			done();
+		});
+		
+
+	});
+	//response.end();
+});
 app.get(['/reloadPage'], function(request, response) {
 	fs.readFile('reloadPage.html', 'utf8', function (err,data) {
 		response.write(data);
