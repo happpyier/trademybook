@@ -88,12 +88,12 @@ app.get(['/logmein/:id'], function(request, response) {
 				testSQlValue1 = parseInt(pretestSQlValue1);
 				if (testSQlValue1 < 1)
 				{
-					response.write("this is a valid login");
+					response.write("this is a not valid login");
 					response.end();
 				}
 				else
 				{
-					response.write("this is not a valid login");
+					response.write("this is a valid login");
 					response.end();
 				}
 			}
