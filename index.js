@@ -36,7 +36,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 			{ 
 				var pretestSQlValue1 = result.rows.length;
 				testSQlValue1 = parseInt(pretestSQlValue1);
-				if (testSQlValue1 < 1 && testSQlValue1 != "")
+				if (testSQlValue1 < 1)
 				{
 					var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
 					client.query(postSqlCustom2, function(err, result) 
@@ -48,7 +48,6 @@ app.get(['/addLogin/:id'], function(request, response) {
 							endDirect = 'http://trademybook.herokuapp.com/login'+testSQlValue1;
 							response.redirect(endDirect);
 						}
-						done();
 					});
 				}
 				else
