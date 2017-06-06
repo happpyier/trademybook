@@ -35,6 +35,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 			else
 			{ 
 				testSQlValue1 = result.rows.length;
+				alert(testSQlValue1);
 				if (testSQlValue1 < 1 && testSQlValue1 != "")
 				{
 					var postSqlCustom2 = "INSERT INTO user_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
