@@ -63,6 +63,12 @@ app.get(['/addLogin/:id'], function(request, response) {
 	});
 	//response.end();
 });
+app.get(['/createcookie'], function(request, response) {
+	fs.readFile('login.html', 'utf8', function (err,data) {
+		response.write(data);
+		response.end();
+	});
+});
 app.get(['/login'], function(request, response) {
 	fs.readFile('login.html', 'utf8', function (err,data) {
 		response.write(data);
@@ -88,13 +94,13 @@ app.get(['/logmein/:id'], function(request, response) {
 				testSQlValue1 = parseInt(pretestSQlValue1);
 				if (testSQlValue1 < 1)
 				{
-					response.write("this is a not valid login");
-					response.end();
+					endDirect = 'http://trademybook.herokuapp.com/login';
+					response.redirect(endDirect);
 				}
 				else
 				{
-					response.write("this is a valid login");
-					response.end();
+					endDirect = 'http://trademybook.herokuapp.com/createcookie';
+					response.redirect(endDirect);
 				}
 			}
 			done();
