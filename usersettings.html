@@ -80,6 +80,7 @@
 			{
 				var currentPass = document.getElementById("userPassCookie").innerHTML;
 				var newPass = document.getElementById("valCurrentpass").value;
+				var updatedPass = document.getElementById("valPass").value;
 				//alert (currentPass + "~----currentPass...newPass------~" + newPass);
 				if (currentPass != newPass)
 				{
@@ -88,7 +89,7 @@
 				}
 				else
 				{
-					alert("That is correct");
+					alert(updatedPass);
 				}
 			}
 		</script>
