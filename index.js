@@ -64,7 +64,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 	//response.end();
 });
 app.get(['/createcookie'], function(request, response) {
-	fs.readFile('login.html', 'utf8', function (err,data) {
+	fs.readFile('createcookie.html', 'utf8', function (err,data) {
 		response.write(data);
 		response.end();
 	});
