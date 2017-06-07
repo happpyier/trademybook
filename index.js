@@ -28,7 +28,6 @@ app.get([''], function(request, response) {
 		});
 	}
 });
-
 app.get(['/addLogin/:id'], function(request, response) {
 	var preloginVals = request.params.id;
 	var loginVals = preloginVals.split(",");
@@ -74,6 +73,34 @@ app.get(['/addLogin/:id'], function(request, response) {
 	});
 	//response.end();
 });
+
+
+
+
+
+app.get(['/allbooks'], function(request, response) {
+	fs.readFile('allbooks.html', 'utf8', function (err,data) {
+		response.write(data);
+		response.end();
+	});
+});
+app.get(['/mybooks'], function(request, response) {
+	fs.readFile('mybooks.html', 'utf8', function (err,data) {
+		response.write(data);
+		response.end();
+	});
+});
+app.get(['/usersettings'], function(request, response) {
+	fs.readFile('usersettings.html', 'utf8', function (err,data) {
+		response.write(data);
+		response.end();
+	});
+});
+
+
+
+
+
 app.get(['/createcookie'], function(request, response) {
 	fs.readFile('createcookie.html', 'utf8', function (err,data) {
 		response.write(data);
@@ -120,7 +147,11 @@ app.get(['/logmein/:id'], function(request, response) {
 		
 
 	});
-	//response.end();
+});
+app.get(['/logout'], function(request, response) {
+		userCookie = '';
+		endDirect = 'http://trademybook.herokuapp.com';
+		response.redirect(endDirect);
 });
 app.get(['/reloadPage'], function(request, response) {
 	fs.readFile('reloadPage.html', 'utf8', function (err,data) {
