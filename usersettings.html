@@ -26,8 +26,54 @@
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script>
 			function updateProfile()
-			{
-			
+			{				
+				var _error = 0;
+				var pre_Name = document.getElementById("valName").value;
+				var pre_City = document.getElementById("valCity").value;
+				var pre_State = document.getElementById("valState").value;
+				if (pre_Name.length < 1)
+				{
+					_error += 1;
+					document.getElementById("valName").style.borderColor = "red";
+					document.getElementById("valName").placeholder = "Please enter a Name.";
+				}
+				else
+				{
+					document.getElementById("valName").style.borderColor = "";
+				}
+				if (pre_City.length < 1)
+				{
+					_error += 1;
+					document.getElementById("valCity").style.borderColor = "red";
+					document.getElementById("valCity").placeholder = "Please enter a City.";
+				}
+				else
+				{
+					document.getElementById("valCity").style.borderColor = "";
+				}
+				if (pre_State.length < 2)
+				{
+					_error += 1;
+					document.getElementById("valState").style.borderColor = "red";
+					document.getElementById("valState").placeholder = "Please enter a State.";
+				}
+				else
+				{
+					document.getElementById("valState").style.borderColor = "";
+				}
+				var _Name = pre_Name.replace(/\,/g,"");
+				var _City = pre_City.replace(/\,/g,"");
+				var _State = pre_State.replace(/\,/g,"");
+				var searchVal = _Name + "," + _City + "," + _State;
+				if (_error < 1)
+				{
+					Alert (searchVal);
+					//window.location = "https://trademybook.herokuapp.com/logmeIn/"+searchVal;
+				}
+				else
+				{
+					return false;
+				}
 			}
 			function changePass()
 			{
