@@ -9,13 +9,24 @@ var testSQlValue1 = "";
 var endValue = "";
 var endDirect = "";
 var resultsidSQL = "";
+var userCookie = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
-	fs.readFile('home.html', 'utf8', function (err,data) {
-		response.write(data);
-		response.end();
-	});
+	if (userCookie.length > 0)
+	{
+		fs.readFile('homeLogged.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
+	else
+	{
+		fs.readFile('home.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
 });
 
 app.get(['/addLogin/:id'], function(request, response) {
@@ -99,7 +110,8 @@ app.get(['/logmein/:id'], function(request, response) {
 				}
 				else
 				{
-					endDirect = 'http://trademybook.herokuapp.com/createcookie';
+					userCookie = userEmail;
+					endDirect = 'http://trademybook.herokuapp.com';
 					response.redirect(endDirect);
 				}
 			}
