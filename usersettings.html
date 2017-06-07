@@ -25,10 +25,24 @@
 		</style>
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script>
-			function Alertfunction()
+			function updateProfile()
 			{
-				var testData = document.getElementById("userPassCookie").innerHTML;
-				alert(testData);
+				var currentPass = document.getElementById("userPassCookie").innerHTML;
+				var newPass = document.getElementById("valCurrentpass").value;
+				if (currentPass != newPass)
+				{
+					document.getElementById("valCurrentpass").innerHTML = "";
+					document.getElementById("valCurrentpass").placeholder = "Incorrect Password";
+				}
+				else
+				{
+					alert("That is correct");
+				}
+				
+			}
+			function changePass()
+			{
+			
 			}
 		</script>
 	</head>
@@ -64,11 +78,39 @@
 				</div>
 			</div>
 			<div id="mainContent">
-			<div class="first">
-				User Settings Page
-				<button onclick="Alertfunction();"> Alert </button>
+				<div>
+					Update Profile
+					<div class="second">
+						Name
+						<input id="valName"> </input>
+					</div>
+					<div class="second">
+						City
+						<input id="valCity"> </input>
+					</div>
+					<div class="second">
+						State
+						<input id="valState"> </input>
+					</div>
+					<div class="third">
+						<button onclick="updateProfile();"> Submit </button>
+					</div>
+				</div>
+				<div>
+					Change Password
+					<div class="second">
+						Current Password
+						<input id="valCurrentpass"> </input>
+					</div>
+					<div class="second">
+						New Password
+						<input id="valPass"> </input>
+					</div>
+					<div class="third">
+						<button onclick="changePass();"> Submit </button>
+					</div>
+				</div>
 			</div>
-		</div>
 			<div id="footerContent">
 			
 			<div>
