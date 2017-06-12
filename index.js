@@ -78,7 +78,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 
 
 
-
+//Your Trade Requests and Trade Requests for You will be loaded from the Database. 
 app.get(['/allbooks'], function(request, response) {
 	if (userCookie.length > 0)
 	{
