@@ -12,8 +12,10 @@
 			.blue { background-color: blue; }
 			.button { width: 100px; height: 35px;  display: inline-block; text-align: center; padding-top: 15px;}
 			.button:hover { background-color: DimGray; color: black; }
+			
 			.buttonBook { width: 260px; height: 25px;  display: inline-block; text-align: center; padding-top: 10px; color:white; font-size: 15px; }
 			.buttonSubmit { display: inline-block; text-align: center; }
+			.button:hover { background-color: DimGray; color: black; }
 			.green { background-color: green; }
 			.featuresBar { display: inline-block; }
 			.first { padding-top: 30px; vertical-align: middle; font-size: 50px; text-align: center; }
@@ -89,9 +91,11 @@
 			</div>
 			<div>
 				<input type="text" placeholder="Add Book"></input>
-				<div class="buttonSubmit blue textWhite" onclick="addBook();">
-					Add
-				</div>
+				<a>
+					<div class="buttonSubmit blue textWhite" onclick="addBook();">
+						Add
+					</div>
+				</a>
 			</div>
 			<div class="third" id="bookResults">
 				Div data each in their own.
