@@ -80,23 +80,52 @@ app.get(['/addLogin/:id'], function(request, response) {
 
 
 app.get(['/allbooks'], function(request, response) {
-	fs.readFile('allbooks.html', 'utf8', function (err,data) {
-		response.write(data);
-		response.end();
-	});
+	if (userCookie.length > 0)
+	{
+		fs.readFile('allbooks.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
+	else
+	{
+		fs.readFile('home.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
 });
 app.get(['/mybooks'], function(request, response) {
-	fs.readFile('mybooks.html', 'utf8', function (err,data) {
-		response.write(data);
-		response.end();
-	});
+	if (userCookie.length > 0)
+	{
+		fs.readFile('mybooks.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
+	else
+	{
+		fs.readFile('home.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
 });
 app.get(['/usersettings'], function(request, response) {
-	fs.readFile('usersettings.html', 'utf8', function (err,data) {
-		
-		response.write('<div class="hidden" id="userPassCookie">'+passCookie+'</div>'+data);
-		response.end();
-	});
+	if (userCookie.length > 0)
+	{
+		fs.readFile('usersettings.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
+	else
+	{
+		fs.readFile('home.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
 });
 
 
