@@ -6,24 +6,36 @@
 			body { color:black; white; margin: 0px; }
 			#footerContent { text-align: center; border-top: thin dotted gray; }
 			#headerContent { background-color: white;  height:50px; border-bottom: thin dotted gray;}
-			#mainContent { background-color: blue; color: white;}
+			#mainContent {  }
 			#ticker_results { width: 100%; }
 			.bottomSpace { margin-bottom: 50px; margin-top: 50px; }
+			.blue { background-color: blue; }
 			.button { width: 100px; height: 35px;  display: inline-block; text-align: center; padding-top: 15px;}
 			.button:hover { background-color: DimGray; color: black; }
+			.buttonBook { width: 260px; height: 25px;  display: inline-block; text-align: center; padding-top: 10px; color:white; font-size: 15px; }
+			.green { background-color: green; }
 			.featuresBar { display: inline-block; }
 			.first { padding-top: 30px; vertical-align: middle; font-size: 50px; text-align: center; }
 			.home { margin-left: 200px; }
 			.hidden { display: none; }
 			.largeFont { font-size: 40px; }
 			.loginBar { margin-left: 800px; display: inline-block;}
-			.second { vertical-align: middle; font-size: 30px; text-align: center; }
+			.second { margin-left; 200px; vertical-align: middle; font-size: 30px; }
 			.selected { background-color: lightgray; }
-			.third { padding-bottom: 30px; vertical-align: middle; font-size: 30px; text-align: center; }
+			.third { margin-left; 200px; padding-bottom: 30px; vertical-align: middle; font-size: 30px; }
 			.underline { width: 400; height: 35px;  display: inline-block; text-align: center; padding-top: 15px; color: blue; border-bottom: thin dotted gray;} 
 			
 		</style>
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script>
+			function addBook()
+			{
+				//this will add a book to the database;
+				//redirect to addabook.html
+				//after that redirect back to mybooks.html
+				alert("this will eventually add a book to the page.");
+			}
+		</script>
 	</head>
 	<body>
 		<div id="headerContent">
@@ -58,8 +70,29 @@
 			</div>
 		</div>
 		<div id="mainContent">
-			<div class="first">
-				My Books Page
+			<div class="second">
+				<a href="http://trademybook.herokuapp.com/allbooks">
+						<div class="buttonBook green">
+							Your Trade Requests (# Outstanding)
+						</div>
+					</a>
+				<a href="http://trademybook.herokuapp.com/allbooks">
+						<div class="buttonBook blue">
+							Trade Requests for you (# Unapproved)
+						</div>
+					</a>
+			</div>
+			<div class="second">
+				My Books:
+			</div>
+			<div>
+				<input type="text" placeholder="Add Book"></input>
+				<div class="button" onclick="addBook();">
+					Add
+				</div>
+			</div>
+			<div class="third" id="bookResults">
+				Div data each in their own.
 			</div>
 		</div>
 		<div id="footerContent">
