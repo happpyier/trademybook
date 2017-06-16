@@ -189,7 +189,7 @@ app.get(['/usersettings'], function(request, response) {
 					{ resultsidSQL = ("Error " + err); }
 				else
 				{
-					testData = Object.keys(result.rows);
+					testData = userCookie + result.rows[0];
 					//response.redirect(location);
 					//response.end();						
 				}
