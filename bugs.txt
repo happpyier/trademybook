@@ -1,0 +1,1 @@
+When first logging in userCookie is not stored for some reason. Check this out.
