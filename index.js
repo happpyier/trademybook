@@ -180,8 +180,8 @@ app.get(['/signup'], function(request, response) {
 app.get(['/usersettings'], function(request, response) {
 	if (userCookie.length > 0)
 	{
-		fs.readFile('usersettings.html', 'utf8', function (err,data) {
-			var postSqlCustom1 = "SELECT * FROM user_table where email = '"+userCookie+"'";
+		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+		{
 			client.query(postSqlCustom1, function(err, result) 
 			{
 				if (err)
@@ -189,12 +189,16 @@ app.get(['/usersettings'], function(request, response) {
 				else
 				{
 					testData = result.rows
-					response.write(data + "<div>" + testData + "</div>");
-					response.end();						
+					//response.redirect(location);
+					//response.end();						
 				}
 				done();
 			});
-			
+		});
+		fs.readFile('usersettings.html', 'utf8', function (err,data) {
+			var postSqlCustom1 = "SELECT * FROM user_table where email = '"+userCookie+"'";
+			response.write(data + "<div>" + testData + "</div>");
+			response.end();
 		});
 	}
 	else
