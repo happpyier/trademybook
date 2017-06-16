@@ -198,7 +198,7 @@ app.get(['/usersettings'], function(request, response) {
 		});
 		fs.readFile('usersettings.html', 'utf8', function (err,data) {
 			
-			response.write(data + "<div>" + testData + "</div>");
+			response.write(data + "<div class='testData'>" + testData + "</div>");
 			response.end();
 		});
 	}
