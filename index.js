@@ -11,6 +11,7 @@ var endDirect = "";
 var resultsidSQL = "";
 var userCookie = "";
 var passCookie = "";
+var testData = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
@@ -111,33 +112,11 @@ app.get(['/mybooks'], function(request, response) {
 		});
 	}
 });
-app.get(['/usersettings'], function(request, response) {
-	if (userCookie.length > 0)
-	{
-		fs.readFile('usersettings.html', 'utf8', function (err,data) {
-			response.write(data);
-			response.end();
-		});
-	}
-	else
-	{
-		fs.readFile('home.html', 'utf8', function (err,data) {
-			response.write(data);
-			response.end();
-		});
-	}
-});
 
 
 
 
 
-app.get(['/createcookie'], function(request, response) {
-	fs.readFile('createcookie.html', 'utf8', function (err,data) {
-		response.write(data);
-		response.end();
-	});
-});
 app.get(['/login'], function(request, response) {
 	fs.readFile('login.html', 'utf8', function (err,data) {
 		response.write(data);
@@ -197,6 +176,35 @@ app.get(['/signup'], function(request, response) {
 		response.write(data);
 		response.end();
 	});
+});
+app.get(['/usersettings'], function(request, response) {
+	if (userCookie.length > 0)
+	{
+		fs.readFile('usersettings.html', 'utf8', function (err,data) {
+			var postSqlCustom1 = "SELECT * FROM user_table where email = '"+userCookie+"'";
+			client.query(postSqlCustom1, function(err, result) 
+			{
+				if (err)
+					{ resultsidSQL = ("Error " + err); }
+				else
+				{
+					testData = result.rows
+					//response.redirect(location);
+					//response.end();						
+				}
+				done();
+			});
+			response.write(data + "<div>" + testData + "</div>");
+			response.end();
+		});
+	}
+	else
+	{
+		fs.readFile('home.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
