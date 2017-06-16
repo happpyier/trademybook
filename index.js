@@ -189,13 +189,12 @@ app.get(['/usersettings'], function(request, response) {
 				else
 				{
 					testData = result.rows
-					//response.redirect(location);
-					//response.end();						
+					response.write(data + "<div>" + testData + "</div>");
+					response.end();						
 				}
 				done();
 			});
-			response.write(data + "<div>" + testData + "</div>");
-			response.end();
+			
 		});
 	}
 	else
