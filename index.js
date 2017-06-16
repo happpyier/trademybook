@@ -189,7 +189,7 @@ app.get(['/usersettings'], function(request, response) {
 					{ resultsidSQL = ("Error " + err); }
 				else
 				{
-					testData = JSON.stringify(result.rows);
+					testData = JSON.stringify(result);
 					//response.redirect(location);
 					//response.end();						
 				}
