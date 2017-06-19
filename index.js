@@ -11,7 +11,8 @@ var endDirect = "";
 var resultsidSQL = "";
 var userCookie = "";
 var passCookie = "";
-var testData = "";
+var testData1 = "";
+var testData2 = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
@@ -180,6 +181,7 @@ app.get(['/signup'], function(request, response) {
 app.get(['/usersettings'], function(request, response) {
 	if (userCookie.length > 0)
 	{
+		testData1 = userCookie;	
 		var postSqlCustom1 = "SELECT * FROM user_table where email = '"+userCookie+"'";
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
@@ -189,8 +191,7 @@ app.get(['/usersettings'], function(request, response) {
 					{ resultsidSQL = ("Error " + err); }
 				else
 				{
-					testData = userCookie + "..." + result.rows[0]["email"];
-					response.write("<div class='testData'>Hello..." + testData + "...Goodbye</div>");					
+					testData2 = result.rows[0]["email"];			
 				}
 				done();
 			});
@@ -198,6 +199,8 @@ app.get(['/usersettings'], function(request, response) {
 		fs.readFile('usersettings.html', 'utf8', function (err,data) {
 			
 			//response.write(data);
+			response.write("<div class='testData1'>userCookie..." + testData1 + "...Goodbye</div>");	
+			response.write("<div class='testData2'>result.rows[0]..." + testData2 + "...Goodbye</div>");		
 			response.end();
 		});
 		 
