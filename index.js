@@ -198,7 +198,7 @@ app.get(['/usersettings'], function(request, response) {
 		fs.readFile('usersettings.html', 'utf8', function (err,data) {
 			
 			response.write(data);
-			
+			response.end();
 		});
 		 
 		
@@ -210,7 +210,7 @@ app.get(['/usersettings'], function(request, response) {
 			response.end();
 		});
 	}
-	 response.end();
+	 
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
