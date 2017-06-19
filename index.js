@@ -199,8 +199,7 @@ app.get(['/usersettings'], function(request, response) {
 		});
 		fs.readFile('usersettingsLogged.html', 'utf8', function (err,data) {
 			
-			//response.write(data);
-			response.write("<div id='userPassCookieHidden' class='hidden'>" + testData2 + "</div>");		
+			response.write(data+"<div id='userPassCookieHidden' class='hidden'>" + testData2 + "</div>");		
 			response.end();
 		});
 		 
