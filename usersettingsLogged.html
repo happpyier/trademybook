@@ -1,0 +1,180 @@
+<html>
+	<head>
+		<style>
+			a:link { background-color: transparent; text-decoration: none; }
+			a { width: 100%; height: 100%; }
+			body { color:black; white; margin: 0px; }
+			#footerContent { text-align: center; border-top: thin dotted gray; }
+			#headerContent { background-color: white;  height:50px; border-bottom: thin dotted gray;}
+			#mainContent { background-color: blue; color: white;}
+			#ticker_results { width: 100%; }
+			.bottomSpace { margin-bottom: 50px; margin-top: 50px; }
+			.button { width: 100px; height: 35px;  display: inline-block; text-align: center; padding-top: 15px;}
+			.button:hover { background-color: DimGray; color: black; }
+			.featuresBar { display: inline-block; }
+			.first { padding-top: 30px; vertical-align: middle; font-size: 50px; text-align: center; }
+			.home { margin-left: 200px; }
+			.hidden { display: none; }
+			.largeFont { font-size: 40px; }
+			.loginBar { margin-left: 800px; display: inline-block;}
+			.second { vertical-align: middle; font-size: 30px; text-align: center; }
+			.selected { background-color: lightgray; }
+			.testData { background-color: black; color: white; }
+			.third { padding-bottom: 30px; vertical-align: middle; font-size: 30px; text-align: center; }
+			.underline { width: 400; height: 35px;  display: inline-block; text-align: center; padding-top: 15px; color: blue; border-bottom: thin dotted gray;} 
+			
+		</style>
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script>
+			function startup()
+			{
+				
+				document.getElementById("userPassCookie").value = document.getElementById("userPassCookieHidden").innerHTML;
+			}
+			function updateProfile()
+			{				
+				var _error = 0;
+				var pre_Name = document.getElementById("valName").value;
+				var pre_City = document.getElementById("valCity").value;
+				var pre_State = document.getElementById("valState").value;
+				if (pre_Name.length < 1)
+				{
+					_error += 1;
+					document.getElementById("valName").style.borderColor = "red";
+					document.getElementById("valName").placeholder = "Please enter a Name.";
+				}
+				else
+				{
+					document.getElementById("valName").style.borderColor = "";
+				}
+				if (pre_City.length < 1)
+				{
+					_error += 1;
+					document.getElementById("valCity").style.borderColor = "red";
+					document.getElementById("valCity").placeholder = "Please enter a City.";
+				}
+				else
+				{
+					document.getElementById("valCity").style.borderColor = "";
+				}
+				if (pre_State.length < 2)
+				{
+					_error += 1;
+					document.getElementById("valState").style.borderColor = "red";
+					document.getElementById("valState").value = "";
+					document.getElementById("valState").placeholder = "Please enter a State.";
+				}
+				else
+				{
+					document.getElementById("valState").style.borderColor = "";
+				}
+				var _Name = pre_Name.replace(/\,/g,"");
+				var _City = pre_City.replace(/\,/g,"");
+				var _State = pre_State.replace(/\,/g,"");
+				var searchVal = _Name + "," + _City + "," + _State;
+				if (_error < 1)
+				{
+					alert (searchVal);
+					//window.location = "https://trademybook.herokuapp.com/logmeIn/"+searchVal;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			function changePass()
+			{
+				var currentPass = document.getElementById("userPassCookie").innerHTML;
+				var newPass = document.getElementById("valCurrentpass").value;
+				var updatedPass = document.getElementById("valPass").value;
+				//alert (currentPass + "~----currentPass...newPass------~" + newPass);
+				if (currentPass != newPass)
+				{
+					document.getElementById("valCurrentpass").value = "";
+					document.getElementById("valCurrentpass").placeholder = "Incorrect Password";
+				}
+				else
+				{
+					alert(updatedPass);
+				}
+			}
+		</script>
+	</head>
+	<body onload="startup();">
+		<div id="headerContent">
+			<div>
+				<a href="http://trademybook.herokuapp.com">
+					<div  class="button home selected">
+						Home 
+					</div>
+				</a>
+				<div class="loginBar">
+					<a href="http://trademybook.herokuapp.com/allbooks">
+						<div class="button">
+							All Books 
+						</div>
+					</a>
+					<a href="http://trademybook.herokuapp.com/mybooks">
+						<div class="button">
+							My Books
+						</div>
+					</a>
+					<a href="http://trademybook.herokuapp.com/usersettings">
+						<div class="button">
+							Settings
+						</div>
+					</a>					
+					<a href="http://trademybook.herokuapp.com/logout">
+						<div class="button">
+							Log Out
+						</div>
+					</a>
+				</div>
+			</div>
+			<div id="mainContent">
+				<div>
+					<div class="first">
+						Update Profile
+					</div>
+					<div class="second">
+						Name
+						<input id="valName"> </input>
+					</div>
+					<div class="second">
+						City
+						<input id="valCity"> </input>
+					</div>
+					<div class="second">
+						State
+						<input id="valState"> </input>
+					</div>
+					<div class="third">
+						<button onclick="updateProfile();"> Submit </button>
+					</div>
+				</div>
+				<div>
+					<div class="first">
+						Change Password
+					</div>
+					<div class="second">
+						Current Password
+						<input id="valCurrentpass" readonly> </input>
+					</div>
+					<div class="second">
+						New Password
+						<input id="valPass"> </input>
+					</div>
+					<div class="third">
+						<button onclick="changePass();"> Submit </button>
+					</div>
+				</div>
+			</div>
+			<div id="footerContent">
+			
+			<div>
+				<a href="http://github.com/happpyier/trademybook"> &Github </a>
+			</div>
+		</div>
+		</div>
+	</body>
+</html>

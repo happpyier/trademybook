@@ -197,10 +197,10 @@ app.get(['/usersettings'], function(request, response) {
 				done();
 			});
 		});
-		fs.readFile('usersettings.html', 'utf8', function (err,data) {
+		fs.readFile('usersettingsLogged.html', 'utf8', function (err,data) {
 			
 			//response.write(data);
-			response.write("<div id='userPassCookie' class='hidden'>" + testData2 + "</div>");		
+			response.write("<div id='userPassCookieHidden' class='hidden'>" + testData2 + "</div>");		
 			response.end();
 		});
 		 
