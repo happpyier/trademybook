@@ -90,7 +90,15 @@
 				else
 				{
 					var updatedPass = pre_updatedPass.replace(/\,/g,"");
-					alert(updatedPass);
+					if (updatedPass.length < 3)
+					{
+						alert("Please enter a password with at least 3 Characters");
+					}
+					else
+					{
+						alert(updatedPass);
+					}
+					
 				}
 			}
 		</script>
