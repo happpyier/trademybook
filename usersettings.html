@@ -81,9 +81,7 @@
 			{
 				var hiddenPass = document.getElementById("userPassCookieHidden").innerHTML;
 				var currentPass = document.getElementById("valCurrentpass").value;
-				var newPass = document.getElementById("valPass").value;
-				var updatedPass = document.getElementById("valPass").value;
-				//alert (currentPass + "~----currentPass...newPass------~" + newPass);
+				var pre_updatedPass = document.getElementById("valPass").value;
 				if (currentPass != hiddenPass)
 				{
 					document.getElementById("valCurrentpass").value = "";
@@ -91,6 +89,7 @@
 				}
 				else
 				{
+					var updatedPass = pre_updatedPass.replace(/\,/g,"");
 					alert(updatedPass);
 				}
 			}
