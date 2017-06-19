@@ -79,11 +79,12 @@
 			}
 			function changePass()
 			{
+				var hiddenPass = document.getElementById("userPassCookieHidden").innerHTML;
 				var currentPass = document.getElementById("userPassCookie").innerHTML;
 				var newPass = document.getElementById("valCurrentpass").value;
 				var updatedPass = document.getElementById("valPass").value;
 				//alert (currentPass + "~----currentPass...newPass------~" + newPass);
-				if (currentPass != newPass)
+				if (currentPass != hiddenPass)
 				{
 					document.getElementById("valCurrentpass").value = "";
 					document.getElementById("valCurrentpass").placeholder = "Incorrect Password";
