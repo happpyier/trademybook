@@ -192,7 +192,7 @@ app.get(['/usersettings'], function(request, response) {
 				else
 				{
 					testData1 = userCookie;	
-					testData2 = result.rows[0]["email"];					
+					testData2 = result.rows[0]["password"];					
 				}
 				done();
 			});
