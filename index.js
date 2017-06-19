@@ -189,7 +189,8 @@ app.get(['/usersettings'], function(request, response) {
 					{ resultsidSQL = ("Error " + err); }
 				else
 				{
-					testData = userCookie + "..." + result.rows[0]["email"];						
+					testData = userCookie + "..." + result.rows[0]["email"];
+					response.write("<div class='testData'>Hello..." + testData + "...Goodbye</div>");					
 				}
 				done();
 			});
@@ -199,8 +200,8 @@ app.get(['/usersettings'], function(request, response) {
 			response.write(data);
 			
 		});
-		 response.write("<div class='testData'>Hello..." + testData + "...Goodbye</div>");
-		 response.end();
+		 
+		
 	}
 	else
 	{
@@ -209,6 +210,7 @@ app.get(['/usersettings'], function(request, response) {
 			response.end();
 		});
 	}
+	 response.end();
 });
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port')); 
