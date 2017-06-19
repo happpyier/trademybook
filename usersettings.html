@@ -80,8 +80,8 @@
 			function changePass()
 			{
 				var hiddenPass = document.getElementById("userPassCookieHidden").innerHTML;
-				var currentPass = document.getElementById("userPassCookie").innerHTML;
-				var newPass = document.getElementById("valCurrentpass").value;
+				var currentPass = document.getElementById("valCurrentpass").innerHTML;
+				var newPass = document.getElementById("valPass").value;
 				var updatedPass = document.getElementById("valPass").value;
 				//alert (currentPass + "~----currentPass...newPass------~" + newPass);
 				if (currentPass != hiddenPass)
