@@ -196,9 +196,11 @@ app.get(['/usersettings'], function(request, response) {
 		});
 		fs.readFile('usersettings.html', 'utf8', function (err,data) {
 			
-			response.write(data + "<div class='testData'>Hello..." + testData + "...Goodbye</div>");
-			response.end();
+			response.write(data);
+			
 		});
+		 response.write("<div class='testData'>Hello..." + testData + "...Goodbye</div>");
+		 response.end();
 	}
 	else
 	{
