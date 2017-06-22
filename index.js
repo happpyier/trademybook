@@ -221,7 +221,6 @@ app.get(['/signup'], function(request, response) {
 app.get(['/usersettings'], function(request, response) {
 	if (userCookie.length > 0)
 	{
-		
 		var postSqlCustom1 = "SELECT * FROM user_table where email = '"+userCookie+"'";
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
@@ -231,19 +230,16 @@ app.get(['/usersettings'], function(request, response) {
 					{ resultsidSQL = ("Error " + err); }
 				else
 				{
-					testData1 = userCookie;	
+					//testData1 = userCookie;	
 					testData2 = result.rows[0]["password"];					
 				}
 				done();
 			});
 		});
 		fs.readFile('usersettings.html', 'utf8', function (err,data) {
-			
 			response.write(data+"<div id='userPassCookieHidden' class='hidden'>" + testData2 + "</div>");		
 			response.end();
-		});
-		 
-		
+		});	
 	}
 	else
 	{
