@@ -89,9 +89,9 @@ app.get(['/changePass/:id'], function(request, response) {
 	if (userCookie.length > 0)
 	{
 		var preloginVals = request.params.id;
-		var loginVals = preloginVals;
+		var loginVals = preloginVals.split(",");
 		var userEmail = userCookie;
-		var newUserPass = loginVals;
+		var newUserPass = loginVals[0];
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			var postSqlCustom3 = "UPDATE user_table set password = '"+newUserPass+"' WHERE email = '"+userEmail+"'";
