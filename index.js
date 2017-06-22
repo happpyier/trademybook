@@ -87,6 +87,7 @@ app.get(['/addLogin/:id'], function(request, response) {
 });
 app.get(['/changePass/:id'], function(request, response) {
 	if (userCookie.length > 0)
+	{
 		var preloginVals = request.params.id;
 		var loginVals = preloginVals;
 		var userEmail = userCookie;
