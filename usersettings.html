@@ -70,7 +70,7 @@
 				if (_error < 1)
 				{
 					alert (searchVal);
-					//window.location = "https://trademybook.herokuapp.com/logmeIn/"+searchVal;
+					//window.location = "https://trademybook.herokuapp.com/changePass/"+searchVal;
 				}
 				else
 				{
@@ -82,6 +82,7 @@
 				var hiddenPass = document.getElementById("userPassCookieHidden").innerHTML;
 				var currentPass = document.getElementById("valCurrentpass").value;
 				var pre_updatedPass = document.getElementById("valPass").value;
+				var _NewPass = pre_updatedPass.replace(/\,/g,"");
 				if (currentPass != hiddenPass)
 				{
 					document.getElementById("valCurrentpass").value = "";
@@ -96,7 +97,7 @@
 					}
 					else
 					{
-						alert(updatedPass);
+						window.location = "https://trademybook.herokuapp.com/changePass/"+_NewPass;
 					}
 				}
 			}
