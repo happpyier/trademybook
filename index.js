@@ -101,6 +101,7 @@ app.get(['/changePass/:id'], function(request, response) {
 				{ endValue = ("Error " + err); }
 				else
 				{ 
+					userCookie = newUserPass;
 					endDirect = 'http://trademybook.herokuapp.com/usersettings';
 					response.redirect(endDirect);
 				}

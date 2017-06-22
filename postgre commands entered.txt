@@ -1,3 +1,4 @@
 create table user_table (id integer, name text, email text, password text);
 example of insert -- INSERT INTO user_table (name, email, password) VALUES ('user', 'abc@yahoo.com', 'Drama');
 select * from user_table;
+select * from user_table where email = 'happpyier@gmail.com';
