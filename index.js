@@ -95,13 +95,13 @@ app.get(['/changePass/:id'], function(request, response) {
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			var postSqlCustom3 = "UPDATE user_table set password = '"+newUserPass+"' WHERE email = '"+userEmail+"'";
+			userCookie = newUserPass;
 			client.query(postSqlCustom3, function(err, result) 
 			{
 				if (err)
 				{ endValue = ("Error " + err); }
 				else
 				{ 
-					userCookie = newUserPass;
 					endDirect = 'http://trademybook.herokuapp.com';
 					response.redirect(endDirect);
 				}
