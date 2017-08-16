@@ -79,6 +79,13 @@
 					return false;
 				}
 			}
+			function search(ele) 
+			{
+				if(event.keyCode == 13) 
+				{
+					Login();        
+				}
+			}
 		</script>
 	</head>
 	<body>
@@ -110,7 +117,7 @@
 			</div>
 			<div class="second">
 				Password
-				<input id="valPass"> </input>
+				<input id="valPass" onkeydown="search(this);"> </input>
 			</div>
 			<div class="third">
 				<button onclick="Login();"> Submit </button>
