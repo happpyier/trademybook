@@ -28,8 +28,10 @@
 		<script>
 			function startup()
 			{
-				alert (document.getElementById("userDataNameCookieHidden").innerHTML);
-				//document.getElementById("valName").value = document.getElementById("userDataNameCookieHidden").innerHTML;
+				_dataName = document.getElementById("userDataNameCookieHidden").innerHTML;
+				
+				//alert (document.getElementById("userDataNameCookieHidden").innerHTML);
+				document.getElementById("valName").value = _dataName;
 				//if ((document.getElementById("userDataCityCookieHidden").innerHTML).length > 0 ) { document.getElementById("valCity").value = document.getElementById("userDataCityCookieHidden").innerHTML; }
 				//if ((document.getElementById("userDataStateCookieHidden").innerHTML).length > 0 ) { document.getElementById("valState").value = document.getElementById("userDataStateCookieHidden").innerHTML; }
 			}
