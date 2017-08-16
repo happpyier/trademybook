@@ -222,7 +222,6 @@ app.get(['/usersettings'], function(request, response) {
 				{			
 					testData2 = result.rows[0]["password"];
 					testName = result.rows[0]["name"];
-					testEmail = result.rows[0]["email"];
 					testCity = result.rows[0]["city"];
 					testState = result.rows[0]["state"];
 				}
