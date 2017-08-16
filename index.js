@@ -107,7 +107,39 @@ app.get(['/changePass/:id'], function(request, response) {
 		});
 	}
 });
-
+app.get(['/changeProfile/:id'], function(request, response) {
+	if (userCookie.length > 0)
+	{
+		var preloginVals = request.params.id;
+		var loginVals = preloginVals.split(",");
+		var userEmail = userCookie;
+		var newUserName = loginVals[0];
+		var newUserCity = loginVals[1];
+		var newUserState = loginVals[2];
+		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+		{
+			var postSqlCustom3 = "UPDATE user_table set name = '"+newUserName+"', city = '"+newUserCity+"', state = '"+newUserState+"' WHERE email = '"+userEmail+"'";
+			client.query(postSqlCustom3, function(err, result) 
+			{
+				if (err)
+				{ endValue = ("Error " + err); }
+				else
+				{ 
+					endDirect = 'http://trademybook.herokuapp.com';
+					response.redirect(endDirect);
+				}
+				done();
+			});
+		});
+	}
+	else
+	{
+		fs.readFile('home.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
+});
 
 
 //Your Trade Requests and Trade Requests for You will be loaded from the Database. 
