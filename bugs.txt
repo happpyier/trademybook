@@ -1,1 +1,2 @@
 After you change your password the page does stay up. It has something to do with userCookie that is my thinking as of 6/22/17.
+The spacing between home and Login is not correct.
