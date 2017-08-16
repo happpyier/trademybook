@@ -26,6 +26,12 @@
 		</style>
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script>
+			function startup()
+			{
+				document.getElementById("valName").value = document.getElementById("userDataNameCookieHidden").innerHTML;
+				if ((document.getElementById("userDataCityCookieHidden").innerHTM).length > 0 ) { document.getElementById("valCity").value = document.getElementById("userDataCityCookieHidden").innerHTML };
+				if ((document.getElementById("userDataStateCookieHidden").innerHTM).length > 0 ) { document.getElementById("valState").value = document.getElementById("userDataStateCookieHidden").innerHTML };
+			}
 			function updateProfile()
 			{				
 				var _error = 0;
@@ -103,7 +109,7 @@
 			}
 		</script>
 	</head>
-	<body>
+	<body onload="startup();">
 		<div id="headerContent">
 			<div>
 				<a href="http://trademybook.herokuapp.com">
