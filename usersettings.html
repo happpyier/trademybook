@@ -29,11 +29,11 @@
 			function startup()
 			{
 				_dataName = document.getElementById("userDataNameCookieHidden").innerHTML;
-				
-				//alert (document.getElementById("userDataNameCookieHidden").innerHTML);
+				_dataCity = document.getElementById("userDataCityCookieHidden").innerHTML;
+				_dataState = document.getElementById("userDataStateCookieHidden").innerHTML;
 				document.getElementById("valName").value = _dataName;
-				//if ((document.getElementById("userDataCityCookieHidden").innerHTML).length > 0 ) { document.getElementById("valCity").value = document.getElementById("userDataCityCookieHidden").innerHTML; }
-				//if ((document.getElementById("userDataStateCookieHidden").innerHTML).length > 0 ) { document.getElementById("valState").value = document.getElementById("userDataStateCookieHidden").innerHTML; }
+				if (_dataCity.length > 0 && _dataState != "null" ) { document.getElementById("valCity").value = _dataCity; }
+				if (_dataState.length > 0 && _dataState != "null") { document.getElementById("valState").value = _dataState; }
 			}
 			function updateProfile()
 			{				
