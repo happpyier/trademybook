@@ -219,15 +219,18 @@ app.get(['/usersettings'], function(request, response) {
 				if (err)
 					{ resultsidSQL = ("Error " + err); }
 				else
-				{
-					//testData1 = userCookie;	
-					testData2 = result.rows[0]["password"];					
+				{			
+					testData2 = result.rows[0]["password"];
+					testName = result.rows[0]["name"];
+					testEmail = result.rows[0]["email"];
+					testCity = result.rows[0]["city"];
+					testState = result.rows[0]["state"];
 				}
 				done();
 			});
 		});
 		fs.readFile('usersettings.html', 'utf8', function (err,data) {
-			response.write(data+"<div id='userPassCookieHidden' class='hidden'>" + testData2 + "</div>");		
+			response.write(data+"<div id='userPassCookieHidden' class='hidden'>" + testData2 + "</div><div id='userDataNameCookieHidden' class='hidden'>" + testName + "</div>			<div id='userDataEmailCookieHidden' class='hidden'>" + testEmail + "</div>			<div id='userDataCityCookieHidden' class='hidden'>" + testCity + "</div>			<div id='userDataStateCookieHidden' class='hidden'>" + testState + "</div>");		
 			response.end();
 		});	
 	}
