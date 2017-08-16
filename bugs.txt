@@ -1,2 +1,1 @@
-After you change your password the page does stay up. It has something to do with userCookie that is my thinking as of 6/22/17.
-The spacing between home and Login is not correct.
+When I log in and then access the usersettings page. it crashes. //testName = result.rows[0]["name"]; is undentified!// showed up in error log.
