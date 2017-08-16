@@ -26,7 +26,6 @@
 		</style>
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script>
-			/*
 			function startup()
 			{
 				_dataName = document.getElementById("userDataNameCookieHidden").innerHTML;
@@ -36,7 +35,6 @@
 				if (_dataCity.length > 0 && _dataState != "null" ) { document.getElementById("valCity").value = _dataCity; }
 				if (_dataState.length > 0 && _dataState != "null") { document.getElementById("valState").value = _dataState; }
 			}
-			*/
 			function updateProfile()
 			{				
 				var _error = 0;
@@ -80,8 +78,8 @@
 				var searchVal = _Name + "," + _City + "," + _State;
 				if (_error < 1)
 				{
-					//alert (searchVal);
-					window.location = "https://trademybook.herokuapp.com/changeProfile/"+searchVal;
+					alert (searchVal);
+					//window.location = "https://trademybook.herokuapp.com/changeProfile/"+searchVal;
 				}
 				else
 				{
