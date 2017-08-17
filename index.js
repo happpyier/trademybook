@@ -31,6 +31,52 @@ app.get([''], function(request, response) {
 		});
 	}
 });
+app.get(['/addBook/:id'], function(request, response) {
+	/*
+	var preloginVals = request.params.id;
+	var loginVals = preloginVals.split(",");
+	var userName = loginVals[0];
+	var userEmail = loginVals[1];
+	var userPass = loginVals[2];
+	
+	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	{
+		var postSqlCustom3 = "Select name from book_table WHERE email = '"+userEmail+"'";
+		client.query(postSqlCustom3, function(err, result) 
+		{
+			if (err)
+			{ endValue = ("Error " + err); }
+			else
+			{ 
+				var pretestSQlValue1 = result.rows.length;
+				testSQlValue1 = parseInt(pretestSQlValue1);
+				if (testSQlValue1 < 1)
+				{
+					var postSqlCustom2 = "INSERT INTO book_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
+					client.query(postSqlCustom2, function(err, result) 
+					{
+						if (err)
+							{ endValue = ("Error " + err);  }
+						else
+						{ 
+							endDirect = 'http://trademybook.herokuapp.com/login';
+							response.redirect(endDirect);
+						}
+					});
+				}
+				else
+				{
+					endDirect = 'http://trademybook.herokuapp.com/signup';
+					response.redirect(endDirect);
+				}
+			}
+			done();
+		});
+		
+
+	});
+	*/
+});
 app.get(['/addLogin/:id'], function(request, response) {
 	var preloginVals = request.params.id;
 	var loginVals = preloginVals.split(",");
