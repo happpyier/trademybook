@@ -179,6 +179,7 @@ app.get(['/allbooks'], function(request, response) {
 	if (userCookie.length > 0)
 	{
 		fs.readFile('allbooks.html', 'utf8', function (err,data) {
+			//use a for loop and the iframe in mybooks.html
 			response.write(data);
 			response.end();
 		});

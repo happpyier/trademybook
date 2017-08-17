@@ -1,1 +1,0 @@
-When I log in and then access the usersettings page. it crashes. //testName = result.rows[0]["name"]; is undentified!// showed up in error log.
