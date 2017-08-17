@@ -34,10 +34,28 @@
 		<script>
 			function addBook()
 			{
-				//this will add a book to the database;
-				//redirect to addabook.html
-				//after that redirect back to mybooks.html
-				alert("this will eventually add a book to the page.");
+				var _error = 0;
+				var pre_BookName = document.getElementById("bookInput").value;
+				if (pre_BookName.length < 1)
+				{
+					_error += 1;
+					document.getElementById("bookInput").style.borderColor = "red";
+					document.getElementById("bookInput").placeholder = "Please enter a Book Name.";
+				}
+				else
+				{
+					document.getElementById("bookInput").style.borderColor = "";
+				}
+				var _bookName = pre_BookName.replace(/\,/g,"");
+				var searchVal = _bookName;
+				if (_error < 1)
+				{
+					window.location = "https://trademybook.herokuapp.com/changeProfile/"+searchVal;
+				}
+				else
+				{
+					return false;
+				}
 			}
 		</script>
 	</head>
@@ -90,7 +108,7 @@
 				My Books:
 			</div>
 			<div class="margin200">
-				<input type="text" placeholder="Add Book"></input>
+				<input type="text" placeholder="Add Book" id="bookInput"></input>
 				<a>
 					<div class="buttonSubmit blue textWhite" onclick="addBook();">
 						Add
