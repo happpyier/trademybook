@@ -32,51 +32,61 @@ app.get([''], function(request, response) {
 	}
 });
 app.get(['/addBook/:id'], function(request, response) {
-	var preloginVals = request.params.id;
-	var loginVals = preloginVals.split(",");
-	var bookName = loginVals[0];
-	//var userEmail = loginVals[1];
-	//var userPass = loginVals[2];
-	response.write("This is a test..."+bookName);
-	response.end();
-	/*
-	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+	if (userCookie.length > 0)
 	{
-		var postSqlCustom3 = "Select name from book_table WHERE email = '"+userEmail+"'";
-		client.query(postSqlCustom3, function(err, result) 
+		var preloginVals = request.params.id;
+		var loginVals = preloginVals.split(",");
+		var bookName = loginVals[0];
+		//var userEmail = loginVals[1];
+		//var userPass = loginVals[2];
+		response.write("This is a test..."+bookName);
+		response.end();
+		/*
+		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
-			if (err)
-			{ endValue = ("Error " + err); }
-			else
-			{ 
-				var pretestSQlValue1 = result.rows.length;
-				testSQlValue1 = parseInt(pretestSQlValue1);
-				if (testSQlValue1 < 1)
-				{
-					var postSqlCustom2 = "INSERT INTO book_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
-					client.query(postSqlCustom2, function(err, result) 
-					{
-						if (err)
-							{ endValue = ("Error " + err);  }
-						else
-						{ 
-							endDirect = 'http://trademybook.herokuapp.com/login';
-							response.redirect(endDirect);
-						}
-					});
-				}
+			var postSqlCustom3 = "Select name from book_table WHERE email = '"+userEmail+"'";
+			client.query(postSqlCustom3, function(err, result) 
+			{
+				if (err)
+				{ endValue = ("Error " + err); }
 				else
-				{
-					endDirect = 'http://trademybook.herokuapp.com/signup';
-					response.redirect(endDirect);
+				{ 
+					var pretestSQlValue1 = result.rows.length;
+					testSQlValue1 = parseInt(pretestSQlValue1);
+					if (testSQlValue1 < 1)
+					{
+						var postSqlCustom2 = "INSERT INTO book_table (name, email, password) VALUES ('"+userName+"', '"+userEmail+"', '"+userPass+"')";
+						client.query(postSqlCustom2, function(err, result) 
+						{
+							if (err)
+								{ endValue = ("Error " + err);  }
+							else
+							{ 
+								endDirect = 'http://trademybook.herokuapp.com/login';
+								response.redirect(endDirect);
+							}
+						});
+					}
+					else
+					{
+						endDirect = 'http://trademybook.herokuapp.com/signup';
+						response.redirect(endDirect);
+					}
 				}
-			}
-			done();
-		});
-		
+				done();
+			});
+			
 
-	});
-	*/
+		});
+		*/
+	}
+	else
+	{
+		fs.readFile('home.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
 });
 app.get(['/addLogin/:id'], function(request, response) {
 	var preloginVals = request.params.id;
