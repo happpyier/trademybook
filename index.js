@@ -39,7 +39,7 @@ app.get(['/addBook/:id'], function(request, response) {
 		var bookName = loginVals[0];
 		//var userEmail = loginVals[1];
 		//var userPass = loginVals[2];
-		response.write("This is a test..."+bookName);
+		response.write(userCookie+"..."+bookName);
 		response.end();
 		/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
