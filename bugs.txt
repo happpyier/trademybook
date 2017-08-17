@@ -1,0 +1,1 @@
+when I add a book in mybooks it logs me out.
