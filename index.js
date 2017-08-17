@@ -32,6 +32,9 @@ app.get([''], function(request, response) {
 	}
 });
 app.get(['/addBook/:id'], function(request, response) {
+	
+	response.write("This is a test.");
+	response.end();
 	/*
 	var preloginVals = request.params.id;
 	var loginVals = preloginVals.split(",");
