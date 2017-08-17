@@ -28,12 +28,14 @@
 		<script>
 			function startup()
 			{
-				_dataName = document.getElementById("userDataNameCookieHidden").innerHTML;
-				_dataCity = document.getElementById("userDataCityCookieHidden").innerHTML;
-				_dataState = document.getElementById("userDataStateCookieHidden").innerHTML;
-				document.getElementById("valName").value = _dataName;
-				if (_dataCity.length > 0 && _dataState != "null" ) { document.getElementById("valCity").value = _dataCity; }
-				if (_dataState.length > 0 && _dataState != "null") { document.getElementById("valState").value = _dataState; }
+				var rawData = document.getElementById("userPassCookieHidden").innerHTML
+				var preData = rawData.split(",");
+				var dataName_ = preData[1];
+				var dataCity_ =  preData[2];
+				var dataState_ =  preData[3];
+				document.getElementById("valName").value = dataName_;
+				if (dataCity_.length > 0 && dataCity_ != "null" ) { document.getElementById("valCity").value = dataCity_; }
+				if (dataState_.length > 0 && dataState_ != "null") { document.getElementById("valState").value = dataState_; }
 			}
 			function updateProfile()
 			{				
