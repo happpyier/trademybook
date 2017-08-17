@@ -32,16 +32,14 @@ app.get([''], function(request, response) {
 	}
 });
 app.get(['/addBook/:id'], function(request, response) {
-	
-	response.write("This is a test.");
-	response.end();
-	/*
 	var preloginVals = request.params.id;
 	var loginVals = preloginVals.split(",");
-	var userName = loginVals[0];
-	var userEmail = loginVals[1];
-	var userPass = loginVals[2];
-	
+	var bookName = loginVals[0];
+	//var userEmail = loginVals[1];
+	//var userPass = loginVals[2];
+	response.write("This is a test..."+bookName);
+	response.end();
+	/*
 	pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 	{
 		var postSqlCustom3 = "Select name from book_table WHERE email = '"+userEmail+"'";
