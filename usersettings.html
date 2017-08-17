@@ -28,18 +28,14 @@
 		<script>
 			function startup()
 			{
-				var rawData = document.getElementById("userPassCookieHidden").innerHTML
+				var rawData = document.getElementById("userPassCookieHidden").innerHTML;
 				var preData = rawData.split(",");
 				var dataName_ = preData[1];
 				var dataCity_ =  preData[2];
 				var dataState_ =  preData[3];
-				alert (preData[0] + "preData[0]");
-				alert (dataName_ + "dataName_");
-				alert (dataCity_ + "dataCity_");
-				alert (dataState_ + "dataState_");
-				document.getElementById("valName").value = dataName_;
-				if (dataCity_.length > 0 && dataCity_ != "null" ) { document.getElementById("valCity").value = dataCity_; }
-				if (dataState_.length > 0 && dataState_ != "null") { document.getElementById("valState").value = dataState_; }
+				if (dataName_.length > 0 && dataName_ != "null" && dataName_ != "undefined") { document.getElementById("valName").value = dataName_; }
+				if (dataCity_.length > 0 && dataCity_ != "null" && dataCity_ != "undefined" ) { document.getElementById("valCity").value = dataCity_; }
+				if (dataState_.length > 0 && dataState_ != "null" && dataState_ != "undefined") { document.getElementById("valState").value = dataState_; }
 			}
 			function updateProfile()
 			{				
