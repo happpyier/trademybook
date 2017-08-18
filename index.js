@@ -38,8 +38,6 @@ app.get(['/addBook/:id'], function(request, response) {
 		var loginVals = preloginVals.split(",");
 		var bookName = loginVals[0];
 		var userEmail = userCookie;
-		//response.write(userCookie+"..."+bookName);
-		//response.end();
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			var postSqlCustom2 = "INSERT INTO book_table (book, email, trade, checkedin) VALUES ('"+bookName+"', '"+userEmail+"', '0', '1')";
