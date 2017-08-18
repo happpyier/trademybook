@@ -208,11 +208,47 @@ app.get(['/mybooks'], function(request, response) {
 		});
 	}
 });
-
-
-
-
-
+app.get(['/iframe/:id'], function(request, response) 
+{
+		var tempLocation = request.params.id;
+		var _name = "";
+		var _snippet = "";
+		var _image_url = "";
+		/*
+		yelp.search({ terms: "restaurant", location: tempLocation, limit: "20" }).then(function (data) {
+			for (i=0; i<20; i++)
+			{
+				_name = _name + data.businesses[i].name + "|";
+				_snippet = _snippet + data.businesses[i].snippet_text + "|";
+				_image_url = _image_url + data.businesses[i].image_url + "|";				
+			}
+			pre_buis_name = JSON.stringify(_name);
+			pre_buis_snippet = JSON.stringify(_snippet);
+			pre_buis_image_url = JSON.stringify(_image_url);
+			_buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
+			_buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
+			_buis_image_url = pre_buis_image_url.substring(1, pre_buis_image_url.length - 2);
+		});
+			_buis_name_Array = _buis_name.split("|");
+			_buis_snippet_Array = _buis_snippet.split("|");
+			_buis_image_url_Array = _buis_image_url.split("|");
+			if (_screen_name.length > 0)
+			{
+				response.write('<script> function goingToTheBar(divValue) { if(divValue.innerHTML == "0 Going") { divValue.innerHTML = "1 Going"; } else { divValue.innerHTML = "0 Going"; } } </script>');				
+			}
+			else
+			{
+				response.write('<script> function goingToTheBar(divValue) {	return false; } </script>');
+			}
+			*/
+			for (i=0; i<20; i++)
+			{
+				//response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img> </div>");
+				response.write("<div> test </div>");
+			 }
+			//response.write(data);
+			response.end();
+});
 app.get(['/login'], function(request, response) {
 	fs.readFile('login.html', 'utf8', function (err,data) {
 		response.write(data);
