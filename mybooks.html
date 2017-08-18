@@ -57,6 +57,12 @@
 					return false;
 				}
 			}
+			function startBooks()
+			{
+				var searchBarVal = "test";
+				var URL = "https://yelpier.herokuapp.com/iframe/"+searchBarVal;
+				document.getElementById('bookResults').src = URL;
+			}
 		</script>
 	</head>
 	<body>
