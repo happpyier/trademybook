@@ -242,7 +242,7 @@ app.get(['/iframe/:id'], function(request, response)
 			for (i=0; i<20; i++)
 			{
 				//response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img> </div>");
-				response.write("<div class='iframesettings'> test </div>");
+				response.write("<div style='width: 50px; height: 50px; display: inline-block;'> test </div>");
 			 }
 			//response.write(data);
 			response.end();
