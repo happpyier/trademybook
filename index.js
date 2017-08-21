@@ -206,7 +206,8 @@ app.get(['/iframe/loadData'], function(request, response) {
 				{ endValue = ("Error " + err);}
 				else
 				{ 
-					endValue = result.rows.length;
+				alertVar = result.rows;
+				randid_vote = "";
 				alertVar.forEach(function(value)
 				{
 					randid_vote = randid_vote + value["book"];
@@ -216,7 +217,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 				done();
 			});
 		});
-		response.write(endValue);
+		response.write(randid_vote);
 		response.end();
 	}
 	else
