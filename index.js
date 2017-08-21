@@ -214,10 +214,11 @@ app.get(['/iframe/loadData'], function(request, response)
 				done();
 			});
 		});
-		for (i=0; i<resultFrame.length; i++)
-		{	
-			response.write("<div style='display: inline-block;'> "+resultFrame+i" </div>");
-		}
+		//for (i=0; i<resultFrame.length; i++)
+		//{	
+		//	response.write("<div style='display: inline-block;'> "+resultFrame+i" </div>");
+		//}
+		response.write("test");
 		response.end();
 });
 app.get(['/login'], function(request, response) {
