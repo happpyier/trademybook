@@ -216,11 +216,12 @@ app.get(['/iframe/loadData'], function(request, response) {
 					randid_vote = randid_vote + value["book"]+",";
 
 				});
-				iframeTempData = randid_vote.split(",");
+				
 				}
 				done();
 			});
 		});
+		iframeTempData = randid_vote.split(",");
 		for (i=0; i<iframeTempData.length; i++)
 		{
 			response.write(iframeTempData[i]);
