@@ -217,8 +217,8 @@ app.get(['/iframe/loadData'], function(request, response) {
 				done();
 			});
 		});
-		var pre_randid_vote = randid_vote.substring(0, randid_vote.length - 1)
-		response.write(randid_vote);
+		var pre_randid_vote = randid_vote.substring(0, randid_vote.length - 2)
+		response.write(pre_randid_vote);
 		response.end();
 	}
 	else
