@@ -200,10 +200,11 @@ app.get(['/iframe/loadData'], function(request, response)
 			{
 				
 				if (err)
-				{ response.write("failure"); endValue = ("Error " + err); }
+				{ response.write("failure"); endValue = ("Error " + err); response.end();}
 				else
 				{ 
 					response.write("Results");
+					response.end();
 				}
 				done();
 			});
