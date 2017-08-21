@@ -216,7 +216,7 @@ app.get(['/iframe/loadData'], function(request, response)
 		});
 		for (i=0; i<result.length; i++)
 		{	
-			response.write("<div style='display: inline-block;'> "+result+i" </div>");
+			response.write("<div style='display: inline-block;'> "+resultFrame+i" </div>");
 		}
 		response.end();
 });
