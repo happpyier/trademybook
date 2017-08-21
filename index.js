@@ -204,19 +204,19 @@ app.get(['/iframe/loadData'], function(request, response)
 				else
 				{ 
 					response.write("Test");
-					response.write(result);
-					for (i=0; i<result.length; i++)
-					{	
-						response.write("<div style='display: inline-block;'> "+i+" </div>");
-					}
+					response.write(result[0]);
+					//for (i=0; i<result.length; i++)
+					//{	
+					//	response.write("<div style='display: inline-block;'> "+i+" </div>");
+					//}
 				}
 				done();
 			});
 		});
-		for (i=0; i<20; i++)
-		{	
-			response.write("<div style='display: inline-block;'> "+i+" </div>");
-		}
+		//for (i=0; i<20; i++)
+		//{	
+		//	response.write("<div style='display: inline-block;'> "+i+" </div>");
+		//}
 		response.end();
 
 		
