@@ -221,12 +221,12 @@ app.get(['/iframe/loadData'], function(request, response)
 				{ endValue = ("Error " + err); }
 				else
 				{ 
+					response.write("Test");
 					response.write(result);
 					for (i=0; i<result.length; i++)
 					{	
 						response.write("<div style='display: inline-block;'> "+i+" </div>");
 					}
-					response.write("Test");
 				}
 				done();
 			});
