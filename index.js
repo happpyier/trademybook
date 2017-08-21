@@ -216,10 +216,12 @@ app.get(['/iframe/loadData'], function(request, response)
 			var postSqlCustomIframe = "select book from book_table where email = '"+userCookie+"'";
 			client.query(postSqlCustomIframe, function(err, result) 
 			{
+				
 				if (err)
 				{ endValue = ("Error " + err); }
 				else
 				{ 
+					response.write(result);
 					for (i=0; i<result.length; i++)
 					{	
 						response.write("<div style='display: inline-block;'> "+i+" </div>");
