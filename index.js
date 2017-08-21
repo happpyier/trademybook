@@ -226,12 +226,13 @@ app.get(['/iframe/loadData'], function(request, response)
 					{	
 						response.write("<div style='display: inline-block;'> "+i+" </div>");
 					}
+					response.end();
 				}
 				done();
 			});
 		});
 
-		response.end();
+		
 });
 app.get(['/login'], function(request, response) {
 	fs.readFile('login.html', 'utf8', function (err,data) {
