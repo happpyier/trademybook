@@ -222,7 +222,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 			});
 		});
 		iframeTempData = randid_vote.split(",");
-		for (i=0; i<iframeTempData.length; i++)
+		for (i=0; i<3; i++)
 		{
 			response.write(iframeTempData[i]);
 		}
