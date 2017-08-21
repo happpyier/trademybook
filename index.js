@@ -226,11 +226,12 @@ app.get(['/iframe/loadData'], function(request, response)
 					{	
 						response.write("<div style='display: inline-block;'> "+i+" </div>");
 					}
-					response.end();
+					response.write("Test");
 				}
 				done();
 			});
 		});
+		response.end();
 
 		
 });
