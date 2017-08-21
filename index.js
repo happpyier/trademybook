@@ -203,23 +203,23 @@ app.get(['/iframe/loadData'], function(request, response)
 				{ endValue = ("Error " + err); }
 				else
 				{ 
-					resultFrame = result;
 					response.write("Test");
-					//response.write(result);
-					//for (i=0; i<result.length; i++)
-					//{	
-					//	response.write("<div style='display: inline-block;'> "+i+" </div>");
-					//}
+					response.write(result);
+					for (i=0; i<result.length; i++)
+					{	
+						response.write("<div style='display: inline-block;'> "+i+" </div>");
+					}
 				}
 				done();
 			});
 		});
-		//for (i=0; i<resultFrame.length; i++)
-		//{	
-		//	response.write("<div style='display: inline-block;'> "+resultFrame+i" </div>");
-		//}
-		response.write("test");
+		for (i=0; i<20; i++)
+		{	
+			response.write("<div style='display: inline-block;'> "+i+" </div>");
+		}
 		response.end();
+
+		
 });
 app.get(['/login'], function(request, response) {
 	fs.readFile('login.html', 'utf8', function (err,data) {
