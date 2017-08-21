@@ -188,8 +188,9 @@ app.get(['/changeProfile/:id'], function(request, response) {
 		});
 	}
 });
-app.get(['/iframe/loadData'], function(request, response) 
-{
+app.get(['/iframe/loadData'], function(request, response) {
+	if (userCookie.length > 0)
+	{	
 		var _name = "";
 		var _snippet = "";
 		var _image_url = "";
@@ -214,8 +215,14 @@ app.get(['/iframe/loadData'], function(request, response)
 		//	response.write("<div style='display: inline-block;'> "+i+" </div>");
 		//}
 		response.end();
-
-		
+	}
+	else
+	{
+		fs.readFile('home.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}		
 });
 app.get(['/login'], function(request, response) {
 	fs.readFile('login.html', 'utf8', function (err,data) {
