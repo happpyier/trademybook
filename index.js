@@ -201,19 +201,15 @@ app.get(['/iframe/loadData'], function(request, response) {
 			{
 				
 				if (err)
-				{ response.write("failure"); endValue = ("Error " + err); response.end();}
+				{ endValue = ("Error " + err);}
 				else
 				{ 
-					response.write("Results");
-					response.end();
+					endValue = "Results";
 				}
 				done();
 			});
 		});
-		//for (i=0; i<20; i++)
-		//{	
-		//	response.write("<div style='display: inline-block;'> "+i+" </div>");
-		//}
+		response.write(endValue);
 		response.end();
 	}
 	else
