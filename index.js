@@ -15,7 +15,6 @@ var userCookie = "";
 var passCookie = "";
 var testData1 = "";
 var testData2 = "";
-var i;
 var resultFrame = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
@@ -209,23 +208,16 @@ app.get(['/iframe/loadData'], function(request, response) {
 				{ 
 				alertVar = result.rows;
 				randid_vote = "";
-				var iframeTempData = "";
 				alertVar.forEach(function(value)
 				{
 					response.write()
 					randid_vote = randid_vote + value["book"]+",";
-
 				});
 				
 				}
 				done();
 			});
 		});
-		//iframeTempData = randid_vote.split(",");
-		//for (i=0; i<3; i++)
-		//{
-		//	response.write(iframeTempData[i]);
-		//}
 		response.write(randid_vote);
 		response.end();
 	}
