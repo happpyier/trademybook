@@ -6,6 +6,8 @@ const fs = require('fs');
 var path = require("path");
 var url = require("url");
 var testSQlValue1 = "";
+var randid_vote = "";
+var alertVar = "";
 var endValue = "";
 var endDirect = "";
 var resultsidSQL = "";
@@ -196,7 +198,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var _image_url = "";
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
-			var postSqlCustomIframe = "select book from book_table where email = '"+userCookie+"'";
+			var postSqlCustomIframe = "select * from book_table where email = '"+userCookie+"'";
 			client.query(postSqlCustomIframe, function(err, result) 
 			{
 				
@@ -205,6 +207,11 @@ app.get(['/iframe/loadData'], function(request, response) {
 				else
 				{ 
 					endValue = result.rows.length;
+				alertVar.forEach(function(value)
+				{
+					randid_vote = randid_vote + value["book"];
+
+				});
 				}
 				done();
 			});
