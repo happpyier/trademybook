@@ -206,46 +206,30 @@ app.get(['/mybooks'], function(request, response) {
 		});
 	}
 });
-app.get(['/iframe/:id'], function(request, response) 
+app.get(['/iframe/loadData'], function(request, response) 
 {
-		var tempLocation = request.params.id;
 		var _name = "";
 		var _snippet = "";
 		var _image_url = "";
-		/*
-		yelp.search({ terms: "restaurant", location: tempLocation, limit: "20" }).then(function (data) {
-			for (i=0; i<20; i++)
+		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+		{
+			var postSqlCustomIframe = "select book from book_table where email = '"+userCookie+"'";
+			client.query(postSqlCustomIframe, function(err, result) 
 			{
-				_name = _name + data.businesses[i].name + "|";
-				_snippet = _snippet + data.businesses[i].snippet_text + "|";
-				_image_url = _image_url + data.businesses[i].image_url + "|";				
-			}
-			pre_buis_name = JSON.stringify(_name);
-			pre_buis_snippet = JSON.stringify(_snippet);
-			pre_buis_image_url = JSON.stringify(_image_url);
-			_buis_name = pre_buis_name.substring(1, pre_buis_name.length - 2);
-			_buis_snippet = pre_buis_snippet.substring(1, pre_buis_snippet.length - 2);
-			_buis_image_url = pre_buis_image_url.substring(1, pre_buis_image_url.length - 2);
+				if (err)
+				{ endValue = ("Error " + err); }
+				else
+				{ 
+					for (i=0; i<result.length; i++)
+					{	
+						response.write("<div style='display: inline-block;'> "+i+" </div>");
+					}
+				}
+				done();
+			});
 		});
-			_buis_name_Array = _buis_name.split("|");
-			_buis_snippet_Array = _buis_snippet.split("|");
-			_buis_image_url_Array = _buis_image_url.split("|");
-			if (_screen_name.length > 0)
-			{
-				response.write('<script> function goingToTheBar(divValue) { if(divValue.innerHTML == "0 Going") { divValue.innerHTML = "1 Going"; } else { divValue.innerHTML = "0 Going"; } } </script>');				
-			}
-			else
-			{
-				response.write('<script> function goingToTheBar(divValue) {	return false; } </script>');
-			}
-			*/
-			for (i=0; i<20; i++)
-			{
-				//response.write("<div> <img src='" + _buis_image_url_Array[i] + "'> </img> </div>");
-				response.write("<div style='width: 50px; height: 50px; display: inline-block;'> test </div>");
-			 }
-			//response.write(data);
-			response.end();
+
+		response.end();
 });
 app.get(['/login'], function(request, response) {
 	fs.readFile('login.html', 'utf8', function (err,data) {
