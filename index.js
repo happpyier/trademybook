@@ -221,12 +221,12 @@ app.get(['/iframe/loadData'], function(request, response) {
 				done();
 			});
 		});
-		iframeTempData = randid_vote.split(",");
-		for (i=0; i<3; i++)
-		{
-			response.write(iframeTempData[i]);
-		}
-		
+		//iframeTempData = randid_vote.split(",");
+		//for (i=0; i<3; i++)
+		//{
+		//	response.write(iframeTempData[i]);
+		//}
+		response.write(randid_vote);
 		response.end();
 	}
 	else
