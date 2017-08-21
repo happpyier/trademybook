@@ -210,10 +210,9 @@ app.get(['/iframe/loadData'], function(request, response) {
 				randid_vote = "";
 				alertVar.forEach(function(value)
 				{
-					response.write()
-					randid_vote = randid_vote + value["book"]+",";
+					randid_vote = randid_vote + value["book"];
+
 				});
-				
 				}
 				done();
 			});
