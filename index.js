@@ -13,6 +13,7 @@ var userCookie = "";
 var passCookie = "";
 var testData1 = "";
 var testData2 = "";
+var resultFrame = "";
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
@@ -105,6 +106,23 @@ app.get(['/addLogin/:id'], function(request, response) {
 
 	});
 });
+app.get(['/allbooks'], function(request, response) {
+	if (userCookie.length > 0)
+	{
+		fs.readFile('allbooks.html', 'utf8', function (err,data) {
+			//use a for loop and the iframe in mybooks.html
+			response.write(data);
+			response.end();
+		});
+	}
+	else
+	{
+		fs.readFile('home.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
+});
 app.get(['/changePass/:id'], function(request, response) {
 	if (userCookie.length > 0)
 	{
@@ -170,42 +188,6 @@ app.get(['/changeProfile/:id'], function(request, response) {
 		});
 	}
 });
-
-
-//Your Trade Requests and Trade Requests for You will be loaded from the Database. 
-app.get(['/allbooks'], function(request, response) {
-	if (userCookie.length > 0)
-	{
-		fs.readFile('allbooks.html', 'utf8', function (err,data) {
-			//use a for loop and the iframe in mybooks.html
-			response.write(data);
-			response.end();
-		});
-	}
-	else
-	{
-		fs.readFile('home.html', 'utf8', function (err,data) {
-			response.write(data);
-			response.end();
-		});
-	}
-});
-app.get(['/mybooks'], function(request, response) {
-	if (userCookie.length > 0)
-	{
-		fs.readFile('mybooks.html', 'utf8', function (err,data) {
-			response.write(data);
-			response.end();
-		});
-	}
-	else
-	{
-		fs.readFile('home.html', 'utf8', function (err,data) {
-			response.write(data);
-			response.end();
-		});
-	}
-});
 app.get(['/iframe/loadData'], function(request, response) 
 {
 		var _name = "";
@@ -221,19 +203,22 @@ app.get(['/iframe/loadData'], function(request, response)
 				{ endValue = ("Error " + err); }
 				else
 				{ 
+				resultFrame = result;
 					response.write("Test");
-					response.write(result);
-					for (i=0; i<result.length; i++)
-					{	
-						response.write("<div style='display: inline-block;'> "+i+" </div>");
-					}
+					//response.write(result);
+					//for (i=0; i<result.length; i++)
+					//{	
+					//	response.write("<div style='display: inline-block;'> "+i+" </div>");
+					//}
 				}
 				done();
 			});
 		});
+		for (i=0; i<result.length; i++)
+		{	
+			response.write("<div style='display: inline-block;'> "+result+i" </div>");
+		}
 		response.end();
-
-		
 });
 app.get(['/login'], function(request, response) {
 	fs.readFile('login.html', 'utf8', function (err,data) {
@@ -282,6 +267,22 @@ app.get(['/logout'], function(request, response) {
 		passCookie = "";
 		endDirect = 'http://trademybook.herokuapp.com';
 		response.redirect(endDirect);
+});
+app.get(['/mybooks'], function(request, response) {
+	if (userCookie.length > 0)
+	{
+		fs.readFile('mybooks.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
+	else
+	{
+		fs.readFile('home.html', 'utf8', function (err,data) {
+			response.write(data);
+			response.end();
+		});
+	}
 });
 app.get(['/reloadPage'], function(request, response) {
 	fs.readFile('reloadPage.html', 'utf8', function (err,data) {
