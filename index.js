@@ -204,7 +204,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 				{ endValue = ("Error " + err);}
 				else
 				{ 
-					endValue = "Results";
+					endValue = result;
 				}
 				done();
 			});
