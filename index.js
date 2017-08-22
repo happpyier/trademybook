@@ -235,14 +235,13 @@ app.get(['/iframe/loadData'], function(request, response) {
 			
 		}
 		*/
-		books.search("worm", function(error, results) 
-			{
-				if ( ! error ) {
-					response.write("<div>" + results + "</div>");
-				} else {
-					console.log(error);
-				}
-			});
+		books.search("Professional JavaScript for Web Developers", options, function(error, results, apiResponse) {
+			if ( ! error ) {
+				console.log(results);
+			} else {
+				console.log(error);
+			}
+		});
 		response.end();
 	}
 	else
