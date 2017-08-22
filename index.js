@@ -235,7 +235,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 			
 		}
 		*/
-		books.search("Professional JavaScript for Web Developers", options, function(error, results, apiResponse) {
+		books.search("Professional JavaScript for Web Developers", function(error, results) {
 			if ( ! error ) {
 				console.log(results);
 			} else {
