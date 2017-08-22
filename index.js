@@ -222,7 +222,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var randId_length = randId_split.length;
 		for (var i=0; i<randId_length; i++)
 		{
-			response.write(randId_split[i] + randId_length);
+			response.write("<div>" + randId_split[i] + "</div>");
 		}
 		response.end();
 	}
