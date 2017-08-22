@@ -16,6 +16,7 @@ var passCookie = "";
 var testData1 = "";
 var testData2 = "";
 var resultFrame = "";
+var books = require('google-books-search');
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
@@ -222,7 +223,15 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var randId_length = randId_split.length;
 		for (var i=0; i<randId_length; i++)
 		{
-			response.write("<div>" + randId_split[i] + "</div>");
+			books.search(randId_split[i], function(error, results) 
+			{
+				if ( ! error ) {
+					response.write("<div>" + results['images']['small'] + "</div>");
+				} else {
+					console.log(error);
+				}
+			});
+			
 		}
 		response.end();
 	}
