@@ -220,7 +220,10 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var pre_randid_vote = randid_vote.substring(0, randid_vote.length - 1)
 		var randId_split = pre_randid_vote.split(',');
 		var randId_length = randId_split.length;
-		response.write(randId_split[0] + randId_length);
+		for (var i=0; i<randId_length; i++)
+		{
+			response.write(randId_split[i] + randId_length);
+		}
 		response.end();
 	}
 	else
