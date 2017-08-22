@@ -221,6 +221,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var pre_randid_vote = randid_vote.substring(0, randid_vote.length - 1)
 		var randId_split = pre_randid_vote.split(',');
 		var randId_length = randId_split.length;
+		/*
 		for (var i=0; i<randId_length; i++)
 		{
 			books.search(randId_split[i], function(error, results) 
@@ -233,6 +234,15 @@ app.get(['/iframe/loadData'], function(request, response) {
 			});
 			
 		}
+		*/
+		books.search(randId_split[0], function(error, results) 
+			{
+				if ( ! error ) {
+					response.write("<div>" + results + "</div>");
+				} else {
+					console.log(error);
+				}
+			});
 		response.end();
 	}
 	else
