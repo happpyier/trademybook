@@ -221,20 +221,13 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var pre_randid_vote = randid_vote.substring(0, randid_vote.length - 1)
 		var randId_split = pre_randid_vote.split(',');
 		var randId_length = randId_split.length;
-		/*
+		
 		for (var i=0; i<randId_length; i++)
 		{
-			books.search(randId_split[i], function(error, results) 
-			{
-				if ( ! error ) {
-					response.write("<div>" + results['images']['small'] + "</div>");
-				} else {
-					console.log(error);
-				}
-			});
+			response.write("<div>" + randId_split[i] + "</div>")
 			
 		}
-		*/
+		/*
 		books.search("Professional JavaScript for Web Developers", function(error, results) {
 			if ( ! error ) {
 				response.write(results);
@@ -242,6 +235,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 				console.log(error);
 			}
 		});
+		*/
 		response.end();
 	}
 	else
