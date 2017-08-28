@@ -314,8 +314,6 @@ app.get(['/mybooks'], function(request, response) {
 		fs.readFile('mybooks.html', 'utf8', function (err,data) {
 			response.write(data);
 		});	
-		response.end();
-		/*
 		var _name = "";
 		var _snippet = "";
 		var _image_url = "";
@@ -380,9 +378,9 @@ app.get(['/mybooks'], function(request, response) {
 		}	
 		fs.readFile('mybooks2.html', 'utf8', function (err,data) {
 			response.write(data);
+			response.end();
 		});
-		response.end();
-		*/
+		
 	}
 	else
 	{
