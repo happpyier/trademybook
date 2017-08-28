@@ -311,9 +311,9 @@ app.get(['/logout'], function(request, response) {
 app.get(['/mybooks'], function(request, response) {
 	if (userCookie.length > 0)
 	{
-		fs.readFile('mybooks.html', 'utf8', function (err,data) 
-		{
+		fs.readFile('login.html', 'utf8', function (err,data) {
 			response.write(data);
+			response.end();
 		});	
 		var _name = "";
 		var _snippet = "";
