@@ -237,14 +237,14 @@ app.get(['/iframe/loadData'], function(request, response) {
 		{
 			var books = require('google-books-search');
 
-			books.search('Professional JavaScript for Web Developers', options, function(error, results) {
+			books.search(randId_split[i], options, function(error, results) {
 				if ( ! error ) {
 					BookPassValue = JSON.stringify(results[0]["thumbnail"]);
 				} else {
 					// .... Handle errors here;
 				}
 			});
-			response.write("<div>" + randId_split[i] + BookPassValue + "</div>");
+			response.write("<div>" + randId_split[i] + "<img src='" + BookPassValue + "'></img>" + + "</div>");
 			
 		}
 		response.end();
