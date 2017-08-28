@@ -358,7 +358,7 @@ app.get(['/mybooks'], function(request, response) {
 		{
 			if ( ! error ) 
 			{
-				BookPassValue = BookPassValue+results[i]["thumbnail"];
+				BookPassValue = BookPassValue+results[0]["thumbnail"];
 			} 
 			else 
 			{
