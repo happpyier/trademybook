@@ -16,7 +16,7 @@ var passCookie = "";
 var testData1 = "";
 var testData2 = "";
 var resultFrame = "";
-var books = require('google-books-search');
+var isbn = require('node-isbn');
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
@@ -237,15 +237,11 @@ app.get(['/iframe/loadData'], function(request, response) {
 			
 		}
 		
-		books.search("Professional JavaScript for Web Developers", options, function(error, results) 
-		{
-			if (error) 
-			{
-				response.write("Fail");
-			} 
-			else 
-			{	
-				response.write("Pass");
+		isbn.resolve('0735619670', function (err, book) {
+			if (err) {
+				response.write('Book not found', err);
+			} else {
+				response.write('Book found %j', book);
 			}
 		});
 		
