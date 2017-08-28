@@ -230,11 +230,12 @@ app.get(['/iframe/loadData'], function(request, response) {
 			response.write("<div>" + randId_split[i] + "</div>")
 			
 		}
-		ISBNDB.Books.get("9780743294065", function(responseBody){
-		  response.write("Books passed");
-		}, function(errorResponse){
-			response.write("Books failed");
-		});
+		ISBNDB.Books.search({query: 'William Shakespeare', type: 'author_name'})
+		.then(function(books){
+		  // .... A list of books published by William Shakespeare
+		}, function(errorObject){
+		  // .... Handle errors here
+		})
 		response.end();
 	}
 	else
