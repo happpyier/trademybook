@@ -239,12 +239,14 @@ app.get(['/iframe/loadData'], function(request, response) {
 
 			books.search(randId_split[i], options, function(error, results) {
 				if ( ! error ) {
-					BookPassValue = results[i]["thumbnail"];
+					BookPassValue = results[0]["thumbnail"];
+					
 				} else {
 					// .... Handle errors here;
 				}
 			});
-			response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue + "'></img>" + "</div>");
+		response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue + "'></img>" + "</div>");
+		options.offset = options.offset+1;		
 		}
 		response.end();
 	}
