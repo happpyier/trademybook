@@ -239,7 +239,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 
 			books.search(randId_split[i], options, function(error, results) {
 				if ( ! error ) {
-					BookPassValue = results[0]["thumbnail"];
+					BookPassValue = results[options.offset]["thumbnail"];
 					
 				} else {
 					// .... Handle errors here;
