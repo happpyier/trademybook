@@ -233,7 +233,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 			}, function(errorObject){
 			  // .... Handle errors here
 			})
-			response.write("<div>" + randId_split[i] + BookPassValue "</div>");
+			response.write("<div>" + randId_split[i] + BookPassValue + "</div>");
 			
 		}
 		response.end();
