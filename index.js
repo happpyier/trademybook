@@ -16,7 +16,7 @@ var passCookie = "";
 var testData1 = "";
 var testData2 = "";
 var resultFrame = "";
-var ISBNDB = require('isbndb')
+var ISBNDB = require('isbndbjs')
 ISBNDB.initialize("RUUNQD9P")
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
