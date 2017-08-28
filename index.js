@@ -244,7 +244,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 					// .... Handle errors here;
 				}
 			});
-			response.write("<div>" + randId_split[i] + "<img src='" + BookPassValue + "'></img>" + BookPassValue + "</div>");
+			response.write("<div>" + randId_split[i] + "<img src='" + BookPassValue + "'></img>" + "</div>");
 			
 		}
 		response.end();
