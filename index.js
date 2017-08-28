@@ -227,13 +227,13 @@ app.get(['/iframe/loadData'], function(request, response) {
 		
 		for (var i=0; i<randId_length; i++)
 		{
-		ISBNDB.Books.search({query: 'William Shakespeare', type: 'author_name'})
-		.then(function(books){
-		  console.log("It works!");
-		}, function(errorObject){
-		  // .... Handle errors here
-		})
-			response.write("<div>" + randId_split[i] + "</div>");
+			ISBNDB.Books.search({query: 'William Shakespeare', type: 'author_name'})
+			.then(function(books){
+			  response.write("<div>" + randId_split[i] + "</div>");
+			}, function(errorObject){
+			  // .... Handle errors here
+			})
+			
 			
 		}
 		response.end();
