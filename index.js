@@ -232,7 +232,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 			if ( ! error ) {
 				response.write(results);
 			} else {
-				console.log(error);
+				response.write(error);
 			}
 		});
 		
