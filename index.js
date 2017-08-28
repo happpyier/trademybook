@@ -243,8 +243,9 @@ app.get(['/iframe/loadData'], function(request, response) {
 				} else {
 					// .... Handle errors here;
 				}
+				response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue + "'></img>" + "</div>");
 			});
-			response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue + "'></img>" + "</div>");
+			
 			
 		}
 		response.end();
