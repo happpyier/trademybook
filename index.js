@@ -365,7 +365,7 @@ app.get(['/mybooks'], function(request, response) {
 			}
 		});
 		//results[0]["thumbnail"];
-		if (BookPassValue.length > 0)
+		if (randId_length > 0)
 		{
 			for (var i=0; i<randId_length; i++)
 			{
