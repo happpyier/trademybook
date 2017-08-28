@@ -14,6 +14,7 @@
     "google-books-search": "^0.3.1",
     "googleapis": "^3.1.0",
     "highcharts": "^5.0.5",
+    "isbndbjs": "^1.0.2",
     "markit-on-demand": "^1.0.6",
     "node-markitondemand": "^1.0.4",
     "node-twitter-api": "^1.8.0",
