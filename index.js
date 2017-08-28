@@ -16,7 +16,7 @@ var passCookie = "";
 var testData1 = "";
 var testData2 = "";
 var resultFrame = "";
-var isbn = require('node-isbn');
+//var isbn = require('node-isbn');
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
