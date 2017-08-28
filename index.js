@@ -229,7 +229,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 		{
 			ISBNDB.Books.search({query: 'William Shakespeare', type: 'author_name'})
 			.then(function(books){
-				BookPassValue = typeof(books);
+				BookPassValue = JSON.stringify(books);
 			}, function(errorObject){
 			  // .... Handle errors here
 			})
