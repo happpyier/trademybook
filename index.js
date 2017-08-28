@@ -197,6 +197,15 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var _name = "";
 		var _snippet = "";
 		var _image_url = "";
+		var options = {
+			key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
+			field: 'title',
+			offset: 0,
+			limit: 10,
+			type: 'books',
+			order: 'relevance',
+			lang: 'en'
+		};
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			var postSqlCustomIframe = "select * from book_table where email = '"+userCookie+"'";
@@ -228,7 +237,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 			
 		}
 		
-		books.search("Professional JavaScript for Web Developers", function(error, results) 
+		books.search("Professional JavaScript for Web Developers", options, function(error, results) 
 		{
 			if (error) 
 			{
