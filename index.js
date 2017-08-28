@@ -229,10 +229,12 @@ app.get(['/iframe/loadData'], function(request, response) {
 		{
 			ISBNDB.Books.search({query: randId_split[i], type: 'combined'})
 			.then(function(books){
-			  response.write(books.data.summary);
-			  // .... A list of books published by William Shakespeare
+				response.write(books.data.summary);
+				response.write("Books Pass");
+				// .... A list of books published by William Shakespeare
 			}, function(errorObject){
-			  // .... Handle errors here
+				response.write("Books Fail");
+				// .... Handle errors here
 			})
 			response.write("<div>" + randId_split[i] + "</div>");
 			
