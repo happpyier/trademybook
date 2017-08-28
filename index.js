@@ -16,7 +16,7 @@ var passCookie = "";
 var testData1 = "";
 var testData2 = "";
 var resultFrame = "";
-//var isbn = require('node-isbn');
+var books = require('google-books-search');
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
@@ -197,15 +197,6 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var _name = "";
 		var _snippet = "";
 		var _image_url = "";
-		var options = {
-			key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
-			field: 'title',
-			offset: 0,
-			limit: 10,
-			type: 'books',
-			order: 'relevance',
-			lang: 'en'
-		};
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			var postSqlCustomIframe = "select * from book_table where email = '"+userCookie+"'";
@@ -237,13 +228,13 @@ app.get(['/iframe/loadData'], function(request, response) {
 			
 		}
 		
-		// isbn.resolve('0735619670', function (err, book) {
-			// if (err) {
-				// console.log('Book not found', err);
-			// } else {
-				// console.log('Book found %j', book);
-			// }
-		// });
+		books.search("Professional JavaScript for Web Developers", function(error, results) {
+			if ( ! error ) {
+				response.write(results);
+			} else {
+				console.log(error);
+			}
+		});
 		
 		response.end();
 	}
