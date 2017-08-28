@@ -236,6 +236,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 			response.write("Books failed");
 		});
 		response.end();
+	}
 	else
 	{
 		fs.readFile('home.html', 'utf8', function (err,data) {
