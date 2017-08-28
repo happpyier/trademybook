@@ -239,9 +239,9 @@ app.get(['/iframe/loadData'], function(request, response) {
 		
 		isbn.resolve('0735619670', function (err, book) {
 			if (err) {
-				response.write('Book not found', err);
+				response.write('Book not found');
 			} else {
-				response.write('Book found %j', book);
+				response.write('Book found');
 			}
 		});
 		
