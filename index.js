@@ -245,7 +245,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 					// .... Handle errors here;
 				}
 			});
-		response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue + "'></img>" + "</div>");
+		response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue + "'></img>" + options.offset + "</div>");
 		options.offset = options.offset+1;		
 		}
 		response.end();
