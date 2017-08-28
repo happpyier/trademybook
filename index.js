@@ -352,19 +352,22 @@ app.get(['/mybooks'], function(request, response) {
 				order: 'relevance',
 				lang: 'en'
 			};
+			var books = require('google-books-search');
+
+			books.search(randId_split[i], options, function(error, results) {
+				if ( ! error ) 
+				{
+					BookPassValue = results;
+				} 
+				else 
+				{
+					// .... Handle errors here;
+				}
+			});
 			for (var i=0; i<randId_length; i++)
 			{
-				var books = require('google-books-search');
-
-				books.search(randId_split[i], options, function(error, results) {
-					if ( ! error ) {
-						BookPassValue = results;
-						
-					} else {
-						// .... Handle errors here;
-					}
-				});
-			response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[0]["thumbnail"] + "'></img>" + "</div>");	
+				
+			response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[i]["thumbnail"] + "'></img>" + "</div>");	
 			}
 			fs.readFile('mybooks2.html', 'utf8', function (err,data) {
 				response.write(data);
