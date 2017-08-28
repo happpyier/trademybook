@@ -23,7 +23,7 @@ var options = {
     key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
     field: 'title',
     offset: 0,
-    limit: 10,
+    limit: 1,
     type: 'books',
     order: 'relevance',
     lang: 'en'
@@ -239,7 +239,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 
 			books.search('Professional JavaScript for Web Developers', options, function(error, results) {
 				if ( ! error ) {
-					BookPassValue = JSON.stringify(results]);
+					BookPassValue = JSON.stringify(results[0]["images"]);
 				} else {
 					// .... Handle errors here;
 				}
