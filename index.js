@@ -228,14 +228,6 @@ app.get(['/iframe/loadData'], function(request, response) {
 			
 		}
 		
-		// books.search("Professional JavaScript for Web Developers", function(error, results) {
-			// if ( ! error ) {
-				// response.write(results);
-			// } else {
-				// console.log(error);
-			// }
-		// });
-		
 		response.end();
 	}
 	else
