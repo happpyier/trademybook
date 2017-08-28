@@ -358,18 +358,19 @@ app.get(['/mybooks'], function(request, response) {
 		{
 			if ( ! error ) 
 			{
-				BookPassValue = BookPassValue+results[0]["thumbnail"];
+				BookPassValue = results;
 			} 
 			else 
 			{
 				// .... Handle errors here;
 			}
 		});
+		//results[0]["thumbnail"];
 		if (BookPassValue.length > 0)
 		{
 			for (var i=0; i<randId_length; i++)
 			{
-				response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue + "'></img> </div>");	
+				response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[0]["thumbnail"] + "'></img> </div>");	
 			}
 		}
 		else
