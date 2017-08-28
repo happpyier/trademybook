@@ -16,7 +16,8 @@ var passCookie = "";
 var testData1 = "";
 var testData2 = "";
 var resultFrame = "";
-var books = require('google-books-search');
+var ISBNDB = require('isbndb')
+ISBNDB.initialize("RUUNQD9P")
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
@@ -227,17 +228,14 @@ app.get(['/iframe/loadData'], function(request, response) {
 			response.write("<div>" + randId_split[i] + "</div>")
 			
 		}
-		/*
-		books.search("Professional JavaScript for Web Developers", function(error, results) {
-			if ( ! error ) {
-				response.write(results);
-			} else {
-				console.log(error);
+		ISBNDB.Books.search({query: 'William Shakespeare', type: 'author_name'})
+		.then(function(books){
+			response.write("Books Passed");
+		}, function(errorObject){
+			response.write("Books Failed.");
+		})
+				response.end();
 			}
-		});
-		*/
-		response.end();
-	}
 	else
 	{
 		fs.readFile('home.html', 'utf8', function (err,data) {
