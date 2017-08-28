@@ -227,7 +227,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 			response.write("<div>" + randId_split[i] + "</div>")
 			
 		}
-		/*
+		
 		books.search("Professional JavaScript for Web Developers", function(error, results) {
 			if ( ! error ) {
 				response.write(results);
@@ -235,7 +235,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 				console.log(error);
 			}
 		});
-		*/
+		
 		response.end();
 	}
 	else
