@@ -345,9 +345,6 @@ app.get(['/mybooks'], function(request, response) {
 				});
 			}
 		});
-		app.get(['/iframe/loadData'], function(request, response) {
-			if (userCookie.length > 0)
-			{	
 				var _name = "";
 				var _snippet = "";
 				var _image_url = "";
@@ -404,7 +401,6 @@ app.get(['/mybooks'], function(request, response) {
 					response.write(data);
 				});
 				response.end();
-		});
 	}
 	else
 	{
