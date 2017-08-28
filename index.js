@@ -364,8 +364,7 @@ app.get(['/mybooks'], function(request, response) {
 						// .... Handle errors here;
 					}
 				});
-			response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[i]["thumbnail"] + "'></img>" + options.offset + "</div>");
-			options.offset = options.offset+1;		
+			response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[i]["thumbnail"] + "'></img>" + "</div>");	
 			}
 			fs.readFile('mybooks2.html', 'utf8', function (err,data) {
 				response.write(data);
