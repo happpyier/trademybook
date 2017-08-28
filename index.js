@@ -18,8 +18,8 @@ var testData2 = "";
 var resultFrame = "";
 var endBookValue = "";
 var BookPassValue = "";
-var ISBNDB = require('isbndbjs')
-ISBNDB.initialize("RUUNQD9P")
+var ISBNDB = require('isbndbjs');
+ISBNDB.initialize("RUUNQD9P");
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
