@@ -227,17 +227,12 @@ app.get(['/iframe/loadData'], function(request, response) {
 		
 		for (var i=0; i<randId_length; i++)
 		{
-			/*
-			// ISBNDB.Books.search({query: randId_split[i], type: 'combined'}).then(function(books){ 
-			ISBNDB.Books.search({query: "Butterfly", type: 'combined'}).then(function(books){
-			//	response.write(books.data.summary);
-				response.write("Books Pass");
-			//	 .... A list of books published by William Shakespeare
-			}, function(errorObject){
-				response.write("Books Fail");
-			//	 .... Handle errors here
-			});
-			*/
+		ISBNDB.Books.search({query: 'William Shakespeare', type: 'author_name'})
+		.then(function(books){
+		  // .... A list of books published by William Shakespeare
+		}, function(errorObject){
+		  // .... Handle errors here
+		})
 			response.write("<div>" + randId_split[i] + "</div>");
 			
 		}
