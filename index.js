@@ -239,7 +239,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 
 			books.search('Professional JavaScript for Web Developers', options, function(error, results) {
 				if ( ! error ) {
-					BookPassValue = JSON.stringify(results.images]);
+					BookPassValue = JSON.stringify(results]);
 				} else {
 					// .... Handle errors here;
 				}
