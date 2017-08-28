@@ -16,6 +16,8 @@ var passCookie = "";
 var testData1 = "";
 var testData2 = "";
 var resultFrame = "";
+var endBookValue = "";
+var BookPassValue = "";
 var ISBNDB = require('isbndbjs')
 ISBNDB.initialize("RUUNQD9P")
 app.set('port', (process.env.PORT || 5000));
@@ -228,13 +230,14 @@ app.get(['/iframe/loadData'], function(request, response) {
 			response.write("<div>" + randId_split[i] + "</div>")
 			
 		}
-		ISBNDB.Books.search({query: 'William Shakespeare', type: 'author_name'}).then(function(books){
-			response.write("Books Passed");
-		}, function(errorObject){
-			response.write("Books Failed.");
-		});
-		response.end();
-	}
+		ISBNDB.Books.get("9780743294065", function(err, responseBody){
+			if (err)
+			{ endBookValue = ("Error " + err); }
+			else
+			{ 
+				BookPassValue = responseBody;
+			}
+		});		
 	else
 	{
 		fs.readFile('home.html', 'utf8', function (err,data) {
