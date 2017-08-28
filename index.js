@@ -313,67 +313,66 @@ app.get(['/mybooks'], function(request, response) {
 	{
 		fs.readFile('mybooks.html', 'utf8', function (err,data) 
 		{
-			
 			response.write(data);
-			var _name = "";
-			var _snippet = "";
-			var _image_url = "";
-			pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-			{
-				var postSqlCustomIframe = "select * from book_table where email = '"+userCookie+"'";
-				client.query(postSqlCustomIframe, function(err, result) 
-				{
-					
-					if (err)
-					{ endValue = ("Error " + err);}
-					else
-					{ 
-					alertVar = result.rows;
-					randid_vote = "";
-					alertVar.forEach(function(value)
-					{
-						randid_vote = randid_vote + value["book"]+",";
-
-					});
-					}
-					done();
-				});
-			});
-			var pre_randid_vote = randid_vote.substring(0, randid_vote.length - 1)
-			var randId_split = pre_randid_vote.split(',');
-			var randId_length = randId_split.length;
-			var options = 
-			{
-				key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
-				field: 'title',
-				offset: 0,
-				limit: randId_length,
-				type: 'books',
-				order: 'relevance',
-				lang: 'en'
-			};
-			var books = require('google-books-search');
-
-			books.search(randId_split[i], options, function(error, results) {
-				if ( ! error ) 
-				{
-					BookPassValue = results;
-				} 
-				else 
-				{
-					// .... Handle errors here;
-				}
-			});
-			for (var i=0; i<randId_length; i++)
+		});	
+		var _name = "";
+		var _snippet = "";
+		var _image_url = "";
+		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
+		{
+			var postSqlCustomIframe = "select * from book_table where email = '"+userCookie+"'";
+			client.query(postSqlCustomIframe, function(err, result) 
 			{
 				
-			response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[i]["thumbnail"] + "'></img>" + "</div>");	
-			}
-			fs.readFile('mybooks2.html', 'utf8', function (err,data) {
-				response.write(data);
+				if (err)
+				{ endValue = ("Error " + err);}
+				else
+				{ 
+				alertVar = result.rows;
+				randid_vote = "";
+				alertVar.forEach(function(value)
+				{
+					randid_vote = randid_vote + value["book"]+",";
+
+				});
+				}
+				done();
 			});
-			response.end();
 		});
+		var pre_randid_vote = randid_vote.substring(0, randid_vote.length - 1)
+		var randId_split = pre_randid_vote.split(',');
+		var randId_length = randId_split.length;
+		var options = 
+		{
+			key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
+			field: 'title',
+			offset: 0,
+			limit: randId_length,
+			type: 'books',
+			order: 'relevance',
+			lang: 'en'
+		};
+		var books = require('google-books-search');
+
+		books.search(randId_split[i], options, function(error, results) 
+		{
+			if ( ! error ) 
+			{
+				BookPassValue = results;
+			} 
+			else 
+			{
+				// .... Handle errors here;
+			}
+		});
+		for (var i=0; i<randId_length; i++)
+		{
+			response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[i]["thumbnail"] + "'></img>" + "</div>");	
+		}
+		fs.readFile('mybooks2.html', 'utf8', function (err,data) {
+			response.write(data);
+		});
+		response.end();
 	}
 	else
 	{
