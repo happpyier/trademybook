@@ -340,7 +340,7 @@ app.get(['/mybooks'], function(request, response) {
 		});
 		var pre_randid_vote = randid_vote.substring(0, randid_vote.length - 1)
 		var randId_split = pre_randid_vote.split(',');
-		var randId_length = randId_split.length;
+		var randId_length = parseInt(randId_split.length);
 		var options = 
 		{
 			key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
