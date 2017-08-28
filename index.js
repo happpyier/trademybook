@@ -365,9 +365,12 @@ app.get(['/mybooks'], function(request, response) {
 				// .... Handle errors here;
 			}
 		});
-		for (var i=0; i<randId_length; i++)
+		if (BookPassValue[0]["thumbnail"] != "undefined")
 		{
-			response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[i]["thumbnail"] + "'></img>" + "</div>");	
+			for (var i=0; i<randId_length; i++)
+			{
+				response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[i]["thumbnail"] + "'></img>" + "</div>");	
+			}
 		}
 		fs.readFile('mybooks2.html', 'utf8', function (err,data) {
 			response.write(data);
