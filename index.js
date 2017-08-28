@@ -369,7 +369,7 @@ app.get(['/mybooks'], function(request, response) {
 		//{
 			for (var i=0; i<randId_length; i++)
 			{
-				response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + results.length + "'></img> </div>");	
+				response.write("<div style='display: inline-block;'>" + randId_split[i] + results.length + "<img src='" + " " + "'></img> </div>");	
 			}
 		//}
 		else
