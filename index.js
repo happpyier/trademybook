@@ -237,13 +237,13 @@ app.get(['/iframe/loadData'], function(request, response) {
 			
 		}
 		
-		isbn.resolve('0735619670', function (err, book) {
-			if (err) {
-				console.log('Book not found', err);
-			} else {
-				console.log('Book found %j', book);
-			}
-		});
+		// isbn.resolve('0735619670', function (err, book) {
+			// if (err) {
+				// console.log('Book not found', err);
+			// } else {
+				// console.log('Book found %j', book);
+			// }
+		// });
 		
 		response.end();
 	}
