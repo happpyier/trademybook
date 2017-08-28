@@ -228,11 +228,13 @@ app.get(['/iframe/loadData'], function(request, response) {
 			response.write("<div>" + randId_split[i] + "</div>")
 			
 		}
+		/*
 		ISBNDB.Books.search({query: 'William Shakespeare', type: 'author_name'}).then(function(books){
 			response.write("Books Passed");
 		}, function(errorObject){
 			response.write("Books Failed.");
 		});
+		*/
 		response.end();
 	}
 	else
