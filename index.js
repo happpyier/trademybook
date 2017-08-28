@@ -18,8 +18,16 @@ var testData2 = "";
 var resultFrame = "";
 var endBookValue = "";
 var BookPassValue = "";
-var ISBNDB = require('isbndbjs');
-ISBNDB.initialize("RUUNQD9P");
+var books = require('google-books-search');
+var options = {
+    key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
+    field: 'title',
+    offset: 0,
+    limit: 10,
+    type: 'books',
+    order: 'relevance',
+    lang: 'en'
+};
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
 app.get([''], function(request, response) {
@@ -227,12 +235,15 @@ app.get(['/iframe/loadData'], function(request, response) {
 		
 		for (var i=0; i<randId_length; i++)
 		{
-			ISBNDB.Books.search({query: 'William Shakespeare', type: 'author_name'})
-			.then(function(books){
-				BookPassValue = JSON.stringify(books);
-			}, function(errorObject){
-			  // .... Handle errors here
-			})
+			var books = require('google-books-search');
+
+			books.search('Professional JavaScript for Web Developers', options, function(error, results) {
+				if ( ! error ) {
+					BookPassValue = JSON.stringify(results);
+				} else {
+					// .... Handle errors here;
+				}
+			});
 			response.write("<div>" + randId_split[i] + BookPassValue + "</div>");
 			
 		}
