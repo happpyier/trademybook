@@ -230,14 +230,12 @@ app.get(['/iframe/loadData'], function(request, response) {
 			response.write("<div>" + randId_split[i] + "</div>")
 			
 		}
-		ISBNDB.Books.get("9780743294065", function(err, responseBody){
-			if (err)
-			{ endBookValue = ("Error " + err); }
-			else
-			{ 
-				BookPassValue = responseBody;
-			}
-		});		
+		ISBNDB.Books.get("9780743294065", function(responseBody){
+		  response.write("Books passed");
+		}, function(errorResponse){
+			response.write("Books failed");
+		});
+		response.end();
 	else
 	{
 		fs.readFile('home.html', 'utf8', function (err,data) {
