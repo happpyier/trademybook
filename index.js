@@ -229,11 +229,11 @@ app.get(['/iframe/loadData'], function(request, response) {
 		{
 			ISBNDB.Books.search({query: 'William Shakespeare', type: 'author_name'})
 			.then(function(books){
-			  response.write("<div>" + randId_split[i] + "</div>");
+				BookPassValue = object.keys(books);
 			}, function(errorObject){
 			  // .... Handle errors here
 			})
-			
+			response.write("<div>" + randId_split[i] + BookPassValue "</div>");
 			
 		}
 		response.end();
