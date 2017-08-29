@@ -50,7 +50,11 @@ app.get(['/addBook/:id'], function(request, response) {
 			order: 'relevance',
 			lang: 'en'
 		};
-		books.search(randId_split[i], options, function(error, results) 
+		var preloginVals = request.params.id;
+		var loginVals = preloginVals.split(",");
+		var bookName = loginVals[0];
+		var userEmail = userCookie;
+		books.search(bookName, options, function(error, results) 
 		{
 			if ( ! error ) {
 				BookPassValue = results;
@@ -59,12 +63,8 @@ app.get(['/addBook/:id'], function(request, response) {
 				// .... Handle errors here;
 			}
 		});
-		response.write(BookPassValue["thumbnail"]);
+		response.write(BookPassValue[0]["thumbnail"]);
 		response.end();
-		var preloginVals = request.params.id;
-		var loginVals = preloginVals.split(",");
-		var bookName = loginVals[0];
-		var userEmail = userCookie;
 		/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{

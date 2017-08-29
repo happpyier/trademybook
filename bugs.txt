@@ -1,0 +1,1 @@
+When adding a book add the thumbnail using google book api to the database then pull from database when loading book.
