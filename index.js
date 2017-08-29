@@ -59,8 +59,8 @@ app.get(['/addBook/:id'], function(request, response) {
 				// .... Handle errors here;
 			}
 		});
-		
-		response.end(BookPassValue[0]["thumbnail"]);
+		response.write(BookPassValue["thumbnail"]);
+		response.end();
 		var preloginVals = request.params.id;
 		var loginVals = preloginVals.split(",");
 		var bookName = loginVals[0];
