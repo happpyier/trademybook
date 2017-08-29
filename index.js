@@ -218,6 +218,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var _name = "";
 		var _snippet = "";
 		var _image_url = "";
+		var image_link = "";
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			var postSqlCustomIframe = "select * from book_table where email = '"+userCookie+"'";
@@ -233,13 +234,15 @@ app.get(['/iframe/loadData'], function(request, response) {
 				alertVar.forEach(function(value)
 				{
 					randid_vote = randid_vote + value["book"]+",";
-
+					image_link = image_link + value["imagelink"]+",";
 				});
 				}
 				done();
 			});
 		});
+		var pre_image_link = image_link.substring(0, image_link.length - 1)
 		var pre_randid_vote = randid_vote.substring(0, randid_vote.length - 1)
+		var image_link_split = pre_image_link.split(',');
 		var randId_split = pre_randid_vote.split(',');
 		var randId_length = randId_split.length;
 		for (var i=0; i<randId_length; i++)
@@ -261,7 +264,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 				// } else {
 				// }
 			// });
-		response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + "..." + "'></img></div>");	
+		response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + image_link_split[i] + "'></img></div>");	
 		}
 		response.end();
 	}
