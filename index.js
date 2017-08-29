@@ -60,26 +60,12 @@ app.get(['/addBook/:id'], function(request, response) {
 			if ( ! error ) {
 				BookPassValue_val = results[0]["thumbnail"];
 			} else {
-				BookPassValue_val = "Failed";
+				BookPassValue_val = "";
 			}
 		});
-		if (BookPassValue > 1)
-		{	
-			response.write("<div> <img src='" + BookPassValue_val + "'> </img>'" + preloginVals + BookPassValue + "'</div> ");
-			BookPassValue = 0;
-			response.end();
-		}
-		else
-		{
-			BookPassValue = BookPassValue + 1;
-			endDirect = 'http://trademybook.herokuapp.com/addBook/'+preloginVals;
-			//response.redirect(request.get('referer'));
-			response.redirect(endDirect);
-		}
-		/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
-			var postSqlCustom2 = "INSERT INTO book_table (book, email, trade, checkedin) VALUES ('"+bookName+"', '"+userEmail+"', '0', '1')";
+			var postSqlCustom2 = "INSERT INTO book_table (book, email, imagelink, trade, checkedin) VALUES ('"+bookName+"', '"+userEmail+"', '"+BookPassValue_val+"', '0', '1')";
 			client.query(postSqlCustom2, function(err, result) 
 			{
 				if (err)
@@ -91,7 +77,6 @@ app.get(['/addBook/:id'], function(request, response) {
 				}
 			});
 		});
-		*/
 	}
 	else
 	{

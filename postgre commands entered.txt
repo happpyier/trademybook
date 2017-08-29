@@ -1,5 +1,5 @@
 create table user_table (id integer, name text, email text, password text, city text, state text);
-create table book_table (id integer, book text, email text, trade text, checkedin text);
+create table book_table (id integer, book text, imagelink text, email text, trade text, checkedin text);
 example of insert -- INSERT INTO user_table (name, email, password) VALUES ('user', 'abc@yahoo.com', 'Drama');
 select * from user_table;
 select * from user_table where email = 'happpyier@gmail.com';
