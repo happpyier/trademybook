@@ -223,20 +223,18 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var pre_randid_vote = randid_vote.substring(0, randid_vote.length - 1)
 		var randId_split = pre_randid_vote.split(',');
 		var randId_length = randId_split.length;
-		var options = 
-		{
-			key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
-			field: 'title',
-			offset: 0,
-			limit: randId_length,
-			type: 'books',
-			order: 'relevance',
-			lang: 'en'
-		};
 		for (var i=0; i<randId_length; i++)
 		{
-			var books = require('google-books-search');
-
+			var options = 
+			{
+				key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
+				field: 'title',
+				offset: randId_split[i],
+				limit: randId_length,
+				type: 'books',
+				order: 'relevance',
+				lang: 'en'
+			};
 			books.search(randId_split[i], options, function(error, results) {
 				if ( ! error ) {
 					BookPassValue = results;
@@ -245,8 +243,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 					// .... Handle errors here;
 				}
 			});
-		response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[i]["thumbnail"] + "'></img>" + options.offset + "</div>");
-		options.offset = options.offset+1;		
+		response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[0]["thumbnail"] + "'></img></div>");	
 		}
 		response.end();
 	}
