@@ -17,7 +17,7 @@ var testData1 = "";
 var testData2 = "";
 var resultFrame = "";
 var endBookValue = "";
-var BookPassValue = "";
+var BookPassValue = 0;
 var BookPassValue_val = "";
 var books = require('google-books-search');
 app.set('port', (process.env.PORT || 5000));
@@ -63,13 +63,15 @@ app.get(['/addBook/:id'], function(request, response) {
 				BookPassValue_val = "Failed";
 			}
 		});
-		if (BookPassValue_val.length > 0)
+		if (BookPassValue > 0)
 		{	
 			response.write("<div> <img src='" + BookPassValue_val + "'> </img>'" + preloginVals + "'</div> ");
+			BookPassValue = 0;
 			response.end();
 		}
 		else
 		{
+			BookPassValue = 1;
 			endDirect = 'http://trademybook.herokuapp.com/addBook/'+preloginVals;
 			response.redirect(endDirect);
 		}
