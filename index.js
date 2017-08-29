@@ -63,20 +63,28 @@ app.get(['/addBook/:id'], function(request, response) {
 				BookPassValue_val = "";
 			}
 		});
-		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
-		{
-			var postSqlCustom2 = "INSERT INTO book_table (book, email, imagelink, trade, checkedin) VALUES ('"+bookName+"', '"+userEmail+"', '"+BookPassValue_val+"', '0', '1')";
-			client.query(postSqlCustom2, function(err, result) 
+		if (BookPassValue > 0)
+		{	
+			pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 			{
-				if (err)
-					{ endValue = ("Error " + err);  }
-				else
-				{ 
-					endDirect = 'http://trademybook.herokuapp.com/mybooks';
-					response.redirect(endDirect);
-				}
+				var postSqlCustom2 = "INSERT INTO book_table (book, email, imagelink, trade, checkedin) VALUES ('"+bookName+"', '"+userEmail+"', '"+BookPassValue_val+"', '0', '1')";
+				client.query(postSqlCustom2, function(err, result) 
+				{
+					if (err)
+						{ endValue = ("Error " + err);  }
+					else
+					{ 
+						endDirect = 'http://trademybook.herokuapp.com/mybooks';
+						response.redirect(endDirect);
+					}
+				});
 			});
-		});
+		}
+		else 
+		{
+			endDirect = 'http://trademybook.herokuapp.com/mybooks/'+bookName;
+			response.redirect(endDirect);
+		}
 	}
 	else
 	{
