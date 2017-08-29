@@ -57,13 +57,13 @@ app.get(['/addBook/:id'], function(request, response) {
 		books.search(bookName, options, function(error, results) 
 		{
 			if ( ! error ) {
-				BookPassValue = results;
+				BookPassValue = JSON.stringify(results);
 				
 			} else {
 				// .... Handle errors here;
 			}
 		});
-		response.write(BookPassValue[0]["thumbnail"]);
+		response.write(BookPassValue);
 		response.end();
 		/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
