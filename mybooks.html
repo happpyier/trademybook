@@ -58,9 +58,14 @@
 					return false;
 				}
 			}
+			function startBooks()
+			{
+				var URL = "https://trademybook.herokuapp.com/iframe/loadData";
+				document.getElementById('bookResults').src = URL;
+			}
 		</script>
 	</head>
-	<body>
+	<body onload="startBooks()">
 		<div id="headerContent">
 			<div>
 				<a href="http://trademybook.herokuapp.com">
@@ -108,6 +113,9 @@
 			<div class="second margin200">
 				My Books:
 			</div>
+			<iframe class="third margin200" id="bookResults" scrolling="no">
+				Div data each in their own.
+			</iframe>
 			<div class="margin200">
 				<input type="text" placeholder="Add Book" id="bookInput"></input>
 				<a>
