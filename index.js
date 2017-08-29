@@ -18,6 +18,7 @@ var testData2 = "";
 var resultFrame = "";
 var endBookValue = "";
 var BookPassValue = 0;
+var image_link = "";
 var BookPassValue_val = "";
 var books = require('google-books-search');
 app.set('port', (process.env.PORT || 5000));
@@ -226,7 +227,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var _name = "";
 		var _snippet = "";
 		var _image_url = "";
-		var image_link = "";
+
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			var postSqlCustomIframe = "select * from book_table where email = '"+userCookie+"'";
@@ -255,24 +256,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var randId_length = randId_split.length;
 		for (var i=0; i<randId_length; i++)
 		{
-			// var options = 
-			// {
-				// key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
-				// field: 'title',
-				// offset: i,
-				// limit: randId_length,
-				// type: 'books',
-				// order: 'relevance',
-				// lang: 'en'
-			// };
-			// books.search(randId_split[i], options, function(error, results) {
-				// if ( ! error ) {
-					// BookPassValue = results;
-					
-				// } else {
-				// }
-			// });
-		response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + image_link_split[i] + "'></img></div>");	
+		response.write("<div style='display: inline-block;'>" + image_link_split[i] + "<img src='" + image_link_split[i] + "'></img></div>");	
 		}
 		response.end();
 	}
