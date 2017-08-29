@@ -63,7 +63,7 @@ app.get(['/addBook/:id'], function(request, response) {
 				BookPassValue_val = "";
 			}
 		});
-		if (BookPassValue > 0)
+		if (BookPassValue.length > 0)
 		{	
 			pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 			{
