@@ -40,10 +40,32 @@ app.get([''], function(request, response) {
 app.get(['/addBook/:id'], function(request, response) {
 	if (userCookie.length > 0)
 	{
+		var options = 
+		{
+			key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
+			field: 'title',
+			offset: 0,
+			limit: 1,
+			type: 'books',
+			order: 'relevance',
+			lang: 'en'
+		};
+		books.search(randId_split[i], options, function(error, results) 
+		{
+			if ( ! error ) {
+				BookPassValue = results;
+				
+			} else {
+				// .... Handle errors here;
+			}
+		});
+		
+		response.end(BookPassValue[0]["thumbnail"]);
 		var preloginVals = request.params.id;
 		var loginVals = preloginVals.split(",");
 		var bookName = loginVals[0];
 		var userEmail = userCookie;
+		/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
 			var postSqlCustom2 = "INSERT INTO book_table (book, email, trade, checkedin) VALUES ('"+bookName+"', '"+userEmail+"', '0', '1')";
@@ -58,6 +80,7 @@ app.get(['/addBook/:id'], function(request, response) {
 				}
 			});
 		});
+		*/
 	}
 	else
 	{
