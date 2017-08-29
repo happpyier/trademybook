@@ -60,7 +60,7 @@ app.get(['/addBook/:id'], function(request, response) {
 				BookPassValue = JSON.stringify(results);
 				
 			} else {
-				// .... Handle errors here;
+				BookPassValue = "Failed";
 			}
 		});
 		response.write(BookPassValue);
