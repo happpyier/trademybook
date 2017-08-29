@@ -44,6 +44,7 @@ app.get(['/addBook/:id'], function(request, response) {
 		var loginVals = preloginVals.split(",");
 		var bookName = loginVals[0];
 		var userEmail = userCookie;
+		var BookPassValue_val = "";
 		var options = 
 		{
 			key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
@@ -57,14 +58,14 @@ app.get(['/addBook/:id'], function(request, response) {
 		books.search(preloginVals, options, function(error, results) 
 		{
 			if ( ! error ) {
-				BookPassValue = results[0]["thumbnail"];
+				BookPassValue_val = results[0]["thumbnail"];
 			} else {
-				BookPassValue = "Failed";
+				BookPassValue_val = "Failed";
 			}
 		});
-		if (BookPassValue.length > 0)
+		if (BookPassValue_val.length > 0)
 		{	
-			response.write("<div> <img src='" + BookPassValue + "'> </img></div> ");
+			response.write("<div> <img src='" + BookPassValue_val + "'> </img>'" + preloginVals + "'</div> ");
 			response.end();
 		}
 		else
