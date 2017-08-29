@@ -40,6 +40,10 @@ app.get([''], function(request, response) {
 app.get(['/addBook/:id'], function(request, response) {
 	if (userCookie.length > 0)
 	{
+		var preloginVals = request.params.id;
+		var loginVals = preloginVals.split(",");
+		var bookName = loginVals[0];
+		var userEmail = userCookie;
 		var options = 
 		{
 			key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
@@ -50,14 +54,11 @@ app.get(['/addBook/:id'], function(request, response) {
 			order: 'relevance',
 			lang: 'en'
 		};
-		var preloginVals = request.params.id;
-		var loginVals = preloginVals.split(",");
-		var bookName = loginVals[0];
-		var userEmail = userCookie;
 		books.search(bookName, options, function(error, results) 
 		{
 			if ( ! error ) {
-				BookPassValue = JSON.stringify(results);
+				//BookPassValue = JSON.stringify(results);
+				BookPassValue = "Passed";
 				
 			} else {
 				BookPassValue = "Failed";
@@ -246,27 +247,26 @@ app.get(['/iframe/loadData'], function(request, response) {
 		var pre_randid_vote = randid_vote.substring(0, randid_vote.length - 1)
 		var randId_split = pre_randid_vote.split(',');
 		var randId_length = randId_split.length;
-		for (var i=0; i<randId_length; i++)
-		{
-			var options = 
-			{
-				key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
-				field: 'title',
-				offset: i,
-				limit: randId_length,
-				type: 'books',
-				order: 'relevance',
-				lang: 'en'
-			};
-			books.search(randId_split[i], options, function(error, results) {
-				if ( ! error ) {
-					BookPassValue = results;
+		// for (var i=0; i<randId_length; i++)
+		// {
+			// var options = 
+			// {
+				// key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
+				// field: 'title',
+				// offset: i,
+				// limit: randId_length,
+				// type: 'books',
+				// order: 'relevance',
+				// lang: 'en'
+			// };
+			// books.search(randId_split[i], options, function(error, results) {
+				// if ( ! error ) {
+					// BookPassValue = results;
 					
-				} else {
-					// .... Handle errors here;
-				}
-			});
-		response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[i]["thumbnail"] + "'></img></div>");	
+				// } else {
+				// }
+			// });
+		response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + "..." + "'></img></div>");	
 		}
 		response.end();
 	}
