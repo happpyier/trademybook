@@ -57,15 +57,13 @@ app.get(['/addBook/:id'], function(request, response) {
 		books.search(bookName, options, function(error, results) 
 		{
 			if ( ! error ) {
-				BookPassValue = JSON.stringify(results["thumbnail"]);
-				response.write("<div> <img src='" + BookPassValue + "'> </img></div> ");
-				response.end();
-				
+				BookPassValue = JSON.stringify(results[0]["thumbnail"]);
 			} else {
 				BookPassValue = "Failed";
 			}
 		});
-		
+		response.write("<div> <img src='" + BookPassValue + "'> </img></div> ");
+		response.end();
 		/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
 		{
