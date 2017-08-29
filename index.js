@@ -57,8 +57,7 @@ app.get(['/addBook/:id'], function(request, response) {
 		books.search(bookName, options, function(error, results) 
 		{
 			if ( ! error ) {
-				//BookPassValue = JSON.stringify(results);
-				BookPassValue = "Passed";
+				BookPassValue = JSON.stringify(results);
 				
 			} else {
 				BookPassValue = "Failed";
