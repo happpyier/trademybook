@@ -57,7 +57,7 @@ app.get(['/addBook/:id'], function(request, response) {
 		books.search(bookName, options, function(error, results) 
 		{
 			if ( ! error ) {
-				BookPassValue = JSON.stringify(results[0]["thumbnail"]);
+				BookPassValue = JSON.stringify(results["thumbnail"]);
 				response.write("<div> <img src='" + BookPassValue + "'> </img></div> ");
 				response.end();
 				
