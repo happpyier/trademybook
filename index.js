@@ -63,7 +63,7 @@ app.get(['/addBook/:id'], function(request, response) {
 				BookPassValue_val = "Failed";
 			}
 		});
-		if (BookPassValue > 0)
+		if (BookPassValue > 1)
 		{	
 			response.write("<div> <img src='" + BookPassValue_val + "'> </img>'" + preloginVals + "'</div> ");
 			BookPassValue = 0;
@@ -71,8 +71,9 @@ app.get(['/addBook/:id'], function(request, response) {
 		}
 		else
 		{
-			BookPassValue = 1;
+			BookPassValue = BookPassValue + 1;
 			endDirect = 'http://trademybook.herokuapp.com/addBook/'+preloginVals;
+
 			response.redirect(endDirect);
 		}
 		/*
