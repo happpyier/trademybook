@@ -54,7 +54,7 @@ app.get(['/addBook/:id'], function(request, response) {
 			order: 'relevance',
 			lang: 'en'
 		};
-		books.search(bookName, options, function(error, results) 
+		books.search(preloginVals, options, function(error, results) 
 		{
 			if ( ! error ) {
 				BookPassValue = results[0]["thumbnail"];
