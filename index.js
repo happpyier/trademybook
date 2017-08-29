@@ -69,7 +69,7 @@ app.get(['/addBook/:id'], function(request, response) {
 		}
 		else
 		{
-			endDirect = 'http://trademybook.herokuapp.com/addbook'+preloginVals;
+			endDirect = 'http://trademybook.herokuapp.com/addBook/'+preloginVals;
 			response.redirect(endDirect);
 		}
 		/*
