@@ -58,7 +58,7 @@ app.get(['/addBook/:id'], function(request, response) {
 		{
 			if ( ! error ) {
 				BookPassValue = JSON.stringify(results[0]["thumbnail"]);
-				response.write("<img src='" + BookPassValue + "'> </img> ");
+				response.write("<div> <img src='" + BookPassValue + "'> </img></div> ");
 				response.end();
 				
 			} else {
