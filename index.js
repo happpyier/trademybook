@@ -63,7 +63,7 @@ app.get(['/addBook/:id'], function(request, response) {
 				BookPassValue_val = "Failed";
 			}
 		});
-		if (BookPassValue_val.length > 0 && BookPassValue_val == bookName)
+		if (BookPassValue_val.length > 0)
 		{	
 			response.write("<div> <img src='" + BookPassValue_val + "'> </img>'" + preloginVals + "'</div> ");
 			response.end();
