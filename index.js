@@ -229,7 +229,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 			{
 				key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
 				field: 'title',
-				offset: randId_split[i],
+				offset: i,
 				limit: randId_length,
 				type: 'books',
 				order: 'relevance',
