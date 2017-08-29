@@ -243,7 +243,7 @@ app.get(['/iframe/loadData'], function(request, response) {
 					// .... Handle errors here;
 				}
 			});
-		response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[0]["thumbnail"] + "'></img></div>");	
+		response.write("<div style='display: inline-block;'>" + randId_split[i] + "<img src='" + BookPassValue[i]["thumbnail"] + "'></img></div>");	
 		}
 		response.end();
 	}
