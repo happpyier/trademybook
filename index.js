@@ -63,7 +63,7 @@ app.get(['/addBook/:id'], function(request, response) {
 				BookPassValue = "Failed";
 			}
 		});
-		response.write(BookPassValue);
+		response.write("<img src='" + BookPassValue + "'> </img> ");
 		response.end();
 		/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
