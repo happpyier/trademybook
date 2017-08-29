@@ -72,9 +72,9 @@ app.get(['/addBook/:id'], function(request, response) {
 		else
 		{
 			BookPassValue = BookPassValue + 1;
-			endDirect = 'http://trademybook.herokuapp.com/addBook/'+preloginVals;
-
-			response.redirect(endDirect);
+			//endDirect = 'http://trademybook.herokuapp.com/addBook/'+preloginVals;
+			response.redirect(request.get('referer'));
+			//response.redirect(endDirect);
 		}
 		/*
 		pg.connect(process.env.DATABASE_URL, function(err, client, done) 
