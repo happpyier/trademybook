@@ -65,7 +65,7 @@ app.get(['/addBook/:id'], function(request, response) {
 		});
 		if (BookPassValue > 1)
 		{	
-			response.write("<div> <img src='" + BookPassValue_val + "'> </img>'" + preloginVals + "'</div> ");
+			response.write("<div> <img src='" + BookPassValue_val + "'> </img>'" + preloginVals + BookPassValue + "'</div> ");
 			BookPassValue = 0;
 			response.end();
 		}
