@@ -63,6 +63,13 @@
 				var URL = "https://trademybook.herokuapp.com/iframe/loadData";
 				document.getElementById('bookResults').src = URL;
 			}
+			function search(ele) 
+			{
+				if(event.keyCode == 13) 
+				{
+					addBook();        
+				}
+			}
 		</script>
 	</head>
 	<body onload="startBooks()">
@@ -117,7 +124,7 @@
 				Div data each in their own.
 			</iframe>
 			<div class="margin200">
-				<input type="text" placeholder="Add Book" id="bookInput"></input>
+				<input type="text" placeholder="Add Book" id="bookInput" autofocus onkeydown="search(this);"></input>
 				<a>
 					<div class="buttonSubmit blue textWhite" onclick="addBook();">
 						Add
