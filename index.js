@@ -366,7 +366,8 @@ app.get(['/mybooks'], function(request, response) {
 		});
 			for (var i=0; i<randId_length; i++)
 			{
-				response.write("<div style='display: inline-block;'>" + randId_split[i] + randId_length + "<img src='" + "..." + "'></img> </div>");	
+				var bookValue = BookPassValue[i]["thumbnail"];
+				response.write("<div>" + randId_split[i] + randId_length + "<img src='" + bookValue + "'></img> </div>");	
 			}
 		fs.readFile('mybooks2.html', 'utf8', function (err,data) {
 			response.write(data);
