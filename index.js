@@ -18,6 +18,7 @@ var testData2 = "";
 var resultFrame = "";
 var endBookValue = "";
 var BookPassValue = "";
+var BookPassValue_val = "";
 var books = require('google-books-search');
 app.set('port', (process.env.PORT || 5000));
 app.set("Content-Type", "text/html");
@@ -44,7 +45,6 @@ app.get(['/addBook/:id'], function(request, response) {
 		var loginVals = preloginVals.split(",");
 		var bookName = loginVals[0];
 		var userEmail = userCookie;
-		var BookPassValue_val = "";
 		var options = 
 		{
 			key: "AIzaSyBO5IZ8i0lpF9I0eMwZ9E4nNV3jXkyUuHM",
@@ -63,7 +63,7 @@ app.get(['/addBook/:id'], function(request, response) {
 				BookPassValue_val = "Failed";
 			}
 		});
-		if (BookPassValue_val.length > 0)
+		if (BookPassValue_val.length > 0 && BookPassValue_val == preloginVals)
 		{	
 			response.write("<div> <img src='" + BookPassValue_val + "'> </img>'" + preloginVals + "'</div> ");
 			response.end();
